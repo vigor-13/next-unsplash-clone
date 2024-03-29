@@ -9,13 +9,13 @@ export interface PhotoListProps {
 }
 
 function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
+  const { innerWidth: width } = window;
   return width;
 }
 
 export const PhotoList: React.FC<PhotoListProps> = (props) => {
   const { data } = props;
-  const [windowWidth, setWindowWidth] = useState(getWindowDimensions());
+  const [windowWidth, setWindowWidth] = useState<null | number>(null);
   const [colsNumb, setColsNumb] = useState(0);
   const [chunkedArray, setChunkedArray] = useState<Photo[][] | null>(null);
 
@@ -25,6 +25,12 @@ export const PhotoList: React.FC<PhotoListProps> = (props) => {
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  React.useEffect(() => {
+    if (window) {
+      setWindowWidth(getWindowDimensions());
+    }
   }, []);
 
   React.useEffect(() => {
