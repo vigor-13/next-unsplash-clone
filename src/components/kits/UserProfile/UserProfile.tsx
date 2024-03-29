@@ -10,7 +10,6 @@ interface UserProfileProps {
 
 export const UserProfile: React.FC<UserProfileProps> = (props) => {
   const { data } = props;
-  console.log(data);
 
   return (
     <div className="flex items-center gap-2">
