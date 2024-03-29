@@ -1,5 +1,5 @@
 import React from "react";
-import { MainBanner, PhotoCard } from "@components";
+import { MainBanner, PhotoList } from "@components";
 import { getPhotos } from "@api";
 
 export const HomeScreen: React.FC = async () => {
@@ -9,7 +9,7 @@ export const HomeScreen: React.FC = async () => {
     <>
       <MainBanner />
       <div className="px-4">
-        <PhotoCard data={data[0]} />
+        <PhotoList data={data} />
       </div>
     </>
   );
