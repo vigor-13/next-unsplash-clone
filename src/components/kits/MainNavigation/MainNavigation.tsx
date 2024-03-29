@@ -6,12 +6,12 @@ export const MainNavigation: React.FC = () => {
     <nav>
       <ul className="flex space-x-2">
         <li>
-          <Button as="a" href="/" variant="ghost">
+          <Button as="a" href="/login" variant="ghost">
             로그인
           </Button>
         </li>
         <li>
-          <Button as="a" href="/">
+          <Button as="a" href="/bookmarks">
             북마크
           </Button>
         </li>
