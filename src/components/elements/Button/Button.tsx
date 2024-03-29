@@ -20,8 +20,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
   const buttonClasses = classNames(
     "transition",
     "inline-block",
-    "px-md",
-    "py-1",
+    "px-2.5",
+    "py-1.5",
     "text-stone-500",
     "hover:text-stone-900",
     "text-sm",
