@@ -37,6 +37,8 @@ export interface User {
   twitter_username: string;
   profile_image: ProfileImage;
   links: UserLinks;
+  for_hire: boolean;
+  accepted_tos: boolean;
 }
 
 export interface UserLinks {
@@ -55,6 +57,17 @@ export interface ProfileImage {
 
 export interface Photo {
   id: string;
+  slug: string;
+  alternative_slugs: {
+    en?: string;
+    es?: string;
+    ja?: string;
+    fr?: string;
+    it?: string;
+    ko?: string;
+    de?: string;
+    pt?: string;
+  };
   created_at: Date;
   updated_at: Date;
   width: number;
