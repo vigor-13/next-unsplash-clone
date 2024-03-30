@@ -1,8 +1,8 @@
-"use client";
-import React, { useState } from "react";
-import { Photo } from "@api";
-import { PhotoCard } from "@components";
-import { chunkArray, getColsNumb } from "./PhotoList.lib";
+'use client';
+import React, { useState } from 'react';
+import { Photo } from '@api';
+import { PhotoCard } from '@components';
+import { chunkArray, getColsNumb } from './PhotoList.lib';
 
 export interface PhotoListProps {
   data: Photo[];
@@ -23,8 +23,8 @@ export const PhotoList: React.FC<PhotoListProps> = (props) => {
     function handleResize() {
       setWindowWidth(getWindowDimensions());
     }
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   React.useEffect(() => {

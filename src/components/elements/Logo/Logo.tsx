@@ -1,6 +1,6 @@
-import React from "react";
-import Link from "next/link";
-import { IconBrandUnsplash } from "@tabler/icons-react";
+import React from 'react';
+import Link from 'next/link';
+import { IconBrandUnsplash } from '@tabler/icons-react';
 
 export const Logo: React.FC = () => {
   return (

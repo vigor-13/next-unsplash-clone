@@ -1,5 +1,5 @@
-import React from "react";
-import { Logo, SearchInput, MainNavigation } from "@components";
+import React from 'react';
+import { Logo, SearchInput, MainNavigation } from '@components';
 
 export const Header: React.FC = () => {
   return (

@@ -1,15 +1,19 @@
-import React from "react";
-import { MainBanner, PhotoList } from "@components";
-import { getPhotos } from "@api";
+import React from 'react';
+import { MainBanner, PhotoList } from '@components';
+import { Photo, getPhotos } from '@api';
 
-export const HomeScreen: React.FC = async () => {
-  const { data } = await getPhotos();
+export interface HomeScreenProps {
+  initialData: Photo[];
+}
+
+export const HomeScreen: React.FC<HomeScreenProps> = async (props) => {
+  const { initialData } = props;
 
   return (
     <>
       <MainBanner />
       <div className="px-4">
-        <PhotoList data={data} />
+        <PhotoList data={initialData} />
       </div>
     </>
   );

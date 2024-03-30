@@ -1,39 +1,39 @@
-import React from "react";
-import Link from "next/link";
-import classNames from "classnames";
-import { SystemComponentProps } from "@/components";
+import React from 'react';
+import Link from 'next/link';
+import classNames from 'classnames';
+import { SystemComponentProps } from '@/components';
 
 export interface ButtonProps extends SystemComponentProps {
   href?: string;
-  variant?: "primary" | "ghost";
+  variant?: 'primary' | 'ghost';
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
   const {
     children,
-    as = "button",
+    as = 'button',
     href,
     className,
-    variant = "primary",
+    variant = 'primary',
   } = props;
 
   const buttonClasses = classNames(
-    "transition",
-    "inline-block",
-    "px-2.5",
-    "py-1.5",
-    "text-stone-500",
-    "hover:text-stone-900",
-    "text-sm",
-    "rounded",
-    "border",
-    "hover:border-stone-900",
-    variant !== "ghost" && "shadow-sm",
-    variant === "ghost" && "border-0",
-    className
+    'transition',
+    'inline-block',
+    'px-2.5',
+    'py-1.5',
+    'text-stone-500',
+    'hover:text-stone-900',
+    'text-sm',
+    'rounded',
+    'border',
+    'hover:border-stone-900',
+    variant !== 'ghost' && 'shadow-sm',
+    variant === 'ghost' && 'border-0',
+    className,
   );
 
-  if (as === "a" && href) {
+  if (as === 'a' && href) {
     return (
       <Link className={buttonClasses} href={href}>
         {children}

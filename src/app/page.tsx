@@ -1,5 +1,13 @@
-import { HomeScreen } from "@components";
+import { getPhotos } from '@api';
+import { HomeScreen } from '@components';
+
+export const getInitialData = async () => {
+  const { data } = await getPhotos();
+  return data;
+};
 
 export default async function HomePage() {
-  return <HomeScreen />;
+  const initialData = await getInitialData();
+
+  return <HomeScreen initialData={initialData} />;
 }

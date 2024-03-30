@@ -1,1 +1,1 @@
-export * from "./MainStructure";
+export * from './MainStructure';

@@ -1,8 +1,8 @@
-"use client";
-import React from "react";
-import Image from "next/image";
+'use client';
+import React from 'react';
+import Image from 'next/image';
 import classNames from 'classnames';
-import { type Photo } from "@api";
+import { type Photo } from '@api';
 import { LikeButton, UserProfile } from '@components';
 
 interface PhotoCardProps {
@@ -14,12 +14,12 @@ export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
   const hoveredClasses = classNames(
-    isHovered ? "opacity-100" : "opacity-0",
-    isHovered ? "visible" : "invisible",
+    isHovered ? 'opacity-100' : 'opacity-0',
+    isHovered ? 'visible' : 'invisible',
   );
 
   return (
-    <figure 
+    <figure
       className="relative rounded overflow-hidden w-full h-full cursor-zoom-in"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

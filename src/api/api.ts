@@ -1,4 +1,4 @@
-import qs from "qs";
+import qs from 'qs';
 
 export interface FetchResponse<T> extends Response {
   data: T;
@@ -11,7 +11,7 @@ export interface APIProps {
 }
 
 export const api = async <Data>(
-  props: APIProps
+  props: APIProps,
 ): Promise<FetchResponse<Data>> => {
   const _baseUrl = process.env.NEXT_PUBLIC_API_SERVER_URL;
   const _apiKey = process.env.NEXT_PUBLIC_API_ACCESS_KEY;
@@ -20,9 +20,9 @@ export const api = async <Data>(
   const queryString = qs.stringify(queryParams);
   const url = `${_baseUrl}/${endpoint}?${queryString}`;
   const headers = {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
     Authorization: `Client-ID ${_apiKey}`,
-    "Accept-Version": "v1",
+    'Accept-Version': 'v1',
     ...options?.headers,
   };
   delete options?.headers;

@@ -1,5 +1,5 @@
-import React from "react";
-import { Header } from "@components";
+import React from 'react';
+import { Header } from '@components';
 
 export interface MainStructureProps {
   children: React.ReactNode;
