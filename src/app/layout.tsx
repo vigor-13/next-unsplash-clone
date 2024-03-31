@@ -19,9 +19,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <Providers>
-          <MainStructure>{children}</MainStructure>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
