@@ -5,7 +5,7 @@ import {
   QueryClient,
 } from '@tanstack/react-query';
 import { getPhotos } from '@api';
-import { MainBanner, MainPhotoList } from '@components';
+import { MainStructure, MainBanner, MainPhotoList } from '@components';
 
 export const HomeScreen: React.FC = async () => {
   const queryClient = new QueryClient();
@@ -19,13 +19,13 @@ export const HomeScreen: React.FC = async () => {
   });
 
   return (
-    <>
+    <MainStructure>
       <MainBanner />
       <div className="px-4">
         <HydrationBoundary state={dehydrate(queryClient)}>
           <MainPhotoList />
         </HydrationBoundary>
       </div>
-    </>
+    </MainStructure>
   );
 };
