@@ -1,13 +1,19 @@
-import { FetchResponse, Photo } from '.';
+import { QueryFunction } from '@tanstack/react-query';
+import { Photo } from '.';
 import { api } from './api';
 
-export const getPhotos = async () => {
-  const response = await api<Photo[]>({
-    endpoint: '/photos',
-    queryParams: {
-      page: 1,
-      per_page: 10,
+export interface GetPhotosQueryParams {
+  page: number;
+  per_page?: number;
+}
+
+export const getPhotos = (params: GetPhotosQueryParams) => {
+  const { page, per_page = 20 } = params;
+
+  return api<Photo[]>('/photos', {
+    params: {
+      page: String(page),
+      per_page: String(per_page),
     },
   });
-  return response;
 };
