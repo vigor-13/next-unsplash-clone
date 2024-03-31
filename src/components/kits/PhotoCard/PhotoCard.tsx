@@ -1,5 +1,7 @@
 'use client';
 import React from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { type Photo } from '@api';
@@ -11,6 +13,7 @@ interface PhotoCardProps {
 
 export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
   const { data } = props;
+  const router = useRouter();
   const [isHovered, setIsHovered] = React.useState(false);
 
   const hoveredClasses = classNames(
@@ -18,11 +21,16 @@ export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
     isHovered ? 'visible' : 'invisible',
   );
 
+  const goToDetailPage = () => {
+    return router.push(`/photo/${data.id}`, { scroll: false });
+  };
+
   return (
     <figure
       className="relative rounded overflow-hidden w-full h-full cursor-zoom-in"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={goToDetailPage}
     >
       <Image
         src={data.urls.small}

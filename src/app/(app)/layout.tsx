@@ -1,6 +1,16 @@
 import { MainStructure } from '@components';
 
-export default function AppLayout(props: { children: React.ReactNode }) {
-  const { children } = props;
-  return <MainStructure>{children}</MainStructure>;
+interface AppLayoutProps {
+  children: React.ReactNode;
+  modal: React.ReactNode;
+}
+
+export default function AppLayout(props: AppLayoutProps) {
+  const { children, modal } = props;
+  return (
+    <>
+      <MainStructure>{children}</MainStructure>
+      {modal}
+    </>
+  );
 }

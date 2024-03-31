@@ -21,7 +21,7 @@ export default async function HomePage() {
   return (
     <>
       <MainBanner />
-      <div className="px-4 grow">
+      <div className="px-4">
         <HydrationBoundary state={dehydrate(queryClient)}>
           <MainPhotoList />
         </HydrationBoundary>
