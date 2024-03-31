@@ -11,7 +11,7 @@ export const MainPhotoList = () => {
       const response = await getPhotos({ page: pageParam });
       return response;
     },
-    initialPageParam: 1,
+    initialPageParam: 0,
     select: (data) => {
       return {
         pages: data.pages.flat(2),
@@ -24,15 +24,17 @@ export const MainPhotoList = () => {
     },
   });
 
+  if (api.status === 'error') {
+    return <div>Error...</div>;
+  }
+
+  if (!api.data) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
-      {api.status === 'pending' ? (
-        <div>Loading...</div>
-      ) : api.status === 'error' ? (
-        <div>Error ...</div>
-      ) : (
-        <PhotoList data={api.data.pages} />
-      )}
+      <PhotoList data={api.data.pages} />
     </>
   );
 };
