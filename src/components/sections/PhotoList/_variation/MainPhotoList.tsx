@@ -34,7 +34,11 @@ export const MainPhotoList = () => {
 
   return (
     <>
-      <PhotoList data={api.data.pages} />
+      <PhotoList
+        data={api.data.pages}
+        isFetching={api.isFetching}
+        onEndReached={api.fetchNextPage}
+      />
     </>
   );
 };
