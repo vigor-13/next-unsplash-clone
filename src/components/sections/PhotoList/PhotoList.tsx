@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import { Photo } from '@api';
-import { PhotoCard } from '@components';
+import { PhotoCard, PhotoListSkeleton } from '@components';
 import { chunkArray, getColsNumb } from './PhotoList.lib';
 
 export interface PhotoListProps {
@@ -59,7 +59,7 @@ export const PhotoList: React.FC<PhotoListProps> = (props) => {
           </div>
         ))}
       </div>
-      {isFetching && <div>Loading...</div>}
+      {isFetching && <PhotoListSkeleton />}
       <InView
         as="div"
         rootMargin="0px 0px 40px 0px"
@@ -72,6 +72,6 @@ export const PhotoList: React.FC<PhotoListProps> = (props) => {
       />
     </>
   ) : (
-    <div></div>
+    <PhotoListSkeleton />
   );
 };
