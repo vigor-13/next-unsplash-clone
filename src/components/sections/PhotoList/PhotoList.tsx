@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import { Photo } from '@api';
-import { PhotoCard, PhotoListSkeleton } from '@components';
+import { PhotoCard, PhotoListSkeleton, Spinner } from '@components';
 import { chunkArray, getColsNumb } from './PhotoList.lib';
 
 export interface PhotoListProps {
@@ -59,7 +59,11 @@ export const PhotoList: React.FC<PhotoListProps> = (props) => {
           </div>
         ))}
       </div>
-      {isFetching && <PhotoListSkeleton />}
+      {isFetching && (
+        <div className="flex justify-center py-10">
+          <Spinner />
+        </div>
+      )}
       <InView
         as="div"
         rootMargin="0px 0px 40px 0px"
