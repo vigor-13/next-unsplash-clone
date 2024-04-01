@@ -4,7 +4,7 @@ import { Button } from '@components';
 
 export const LikeButton: React.FC = () => {
   return (
-    <Button className="bg-stone-100 hover:bg-white">
+    <Button>
       <IconHeartFilled size={16} />
     </Button>
   );
