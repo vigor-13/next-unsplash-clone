@@ -4,3 +4,4 @@ export * from './PhotoCard';
 export * from './TitleDescCol';
 export * from './Breadcrumbs';
 export * from './IconText';
+export * from './TagList';
