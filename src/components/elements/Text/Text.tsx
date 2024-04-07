@@ -5,11 +5,10 @@ import { SystemComponentProps } from '@/components';
 export interface TextProps extends SystemComponentProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
   bold?: boolean;
-  color?: string;
 }
 
 export const Text: React.FC<TextProps> = (props) => {
-  const { children, className, as = 'p', size = 'sm', bold, color } = props;
+  const { children, className, as = 'p', size = 'sm', bold } = props;
 
   const textClasses = classNames(
     size === 'xs' && 'text-xs',
@@ -21,7 +20,6 @@ export const Text: React.FC<TextProps> = (props) => {
     size === '3xl' && 'text-3xl',
     size === '4xl' && 'text-4xl',
     bold && 'font-bold',
-    color && `text-${color}`,
     className,
   );
 
