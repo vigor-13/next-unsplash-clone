@@ -2,10 +2,7 @@ import React from 'react';
 import ContentLoader from 'react-content-loader';
 
 export const PhotoListSkeleton: React.FC = (props) => (
-  <ContentLoader
-    viewBox="0 0 100% 1000"
-    style={{ width: '100%', height: '1200' }}
-  >
+  <ContentLoader viewBox="0 0 100% 0" style={{ width: '100%', height: '1200' }}>
     <rect x="0" y="0" width="calc(33.33% - 1rem)" height="500px" />
     <rect
       x="calc(33.33% + 0.5rem)"

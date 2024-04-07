@@ -2,7 +2,13 @@
 import React from 'react';
 import { useParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
-import { PhotoHeader, PhotoBody, Box } from '@components';
+import {
+  PhotoHeader,
+  PhotoBody,
+  Box,
+  PhotoDetailHeaderSkeleton,
+  PhotoDetailBodySkeleton,
+} from '@components';
 import { getPhoto } from '@api';
 
 export interface PhotoScreenProps {}
@@ -19,12 +25,17 @@ export const PhotoScreen: React.FC<PhotoScreenProps> = (props) => {
     },
   });
 
-  return (
-    api.data && (
-      <Box className="px-5 pb-5">
-        <PhotoHeader data={api.data} />
-        <PhotoBody data={api.data} />
-      </Box>
-    )
+  return api.status === 'pending' ? (
+    <Box className="px-5 py-5">
+      <PhotoDetailHeaderSkeleton />
+      <PhotoDetailBodySkeleton />
+    </Box>
+  ) : api.status === 'error' ? (
+    <div>Error</div>
+  ) : (
+    <Box className="px-5 pb-5">
+      <PhotoHeader data={api.data} />
+      <PhotoBody data={api.data} />
+    </Box>
   );
 };
