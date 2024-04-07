@@ -16,8 +16,11 @@ export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
   const hoveredClasses = classNames(
-    isHovered ? 'opacity-100' : 'opacity-0',
-    isHovered ? 'visible' : 'invisible',
+    isHovered ? 'opacity-100 visible' : 'opacity-0 invisible',
+  );
+  const backgroundClasses = classNames(
+    'absolute left-0 top-0 w-full h-full transition',
+    isHovered ? 'opacity-30 visible bg-gray-900' : 'opacity-0 invisible',
   );
 
   const goToDetailPage = () => {
@@ -37,6 +40,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
         width={data.width}
         height={data.height}
       />
+      <Box className={backgroundClasses} />
       <Box className={`absolute right-4 top-4 transition ${hoveredClasses}`}>
         <LikeButton />
       </Box>
