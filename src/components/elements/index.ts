@@ -6,3 +6,4 @@ export * from './Skeleton';
 export * from './Modal';
 export * from './Spinner';
 export * from './Grid';
+export * from './Container';
