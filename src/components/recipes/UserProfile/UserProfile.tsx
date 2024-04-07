@@ -1,48 +1,58 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
+import classNames from 'classnames';
 import { IconRosetteDiscountCheckFilled } from '@tabler/icons-react';
 import { type User } from '@api';
-import { Text } from '@components';
+import { Text, Flex, Box } from '@components';
 
 interface UserProfileProps {
-  data: User;
+  data: User; // TODO:
+  userNameTextColor?: string;
+  subTextColor?: string;
 }
 
 export const UserProfile: React.FC<UserProfileProps> = (props) => {
-  const { data } = props;
+  const { data, userNameTextColor, subTextColor } = props;
+
+  const userNameTextClasses = classNames(
+    userNameTextColor ? userNameTextColor : '',
+  );
+  const subTextClasses = classNames(
+    !subTextColor && data.for_hire && 'text-blue-500 hover:text-blue-600',
+    !subTextColor && !data.for_hire
+      ? 'text-stone-500 hover:text-stone-600'
+      : subTextColor,
+  );
 
   return (
-    <div className="flex items-center gap-2">
-      <div>
-        <a href="/">
-          <Image
-            className="rounded-full"
-            src={data.profile_image.small}
-            alt={data.name}
-            width={34}
-            height={34}
-          />
-        </a>
-      </div>
-      <div>
-        <a href="/">
-          <Text size="md" className="text-stone-300 hover:text-white">
-            {data.username}
+    <Flex className="items-center gap-2 ">
+      <Link href="/">
+        <Image
+          className="rounded-full"
+          src={data.profile_image.small}
+          alt={data.name}
+          width={34}
+          height={34}
+        />
+      </Link>
+      <Box>
+        <Link href="/">
+          <Text size="md" className={userNameTextClasses}>
+            {data.name}
           </Text>
-        </a>
-        {data.for_hire && (
-          <div className="text-stone-400 hover:text-white flex items-center gap-1">
-            <a href="/">
-              <Text size="xs" className="text-stone-400 hover:text-white">
-                고용 가능
-              </Text>
-            </a>
-            <a href="/">
+        </Link>
+        <Flex className={`items-center gap-1  ${subTextClasses}`}>
+          <Link href="/">
+            <Text size="xs">{data.for_hire ? '고용 가능' : data.username}</Text>
+          </Link>
+          {data.for_hire && (
+            <Link href="/">
               <IconRosetteDiscountCheckFilled size={12} />
-            </a>
-          </div>
-        )}
-      </div>
-    </div>
+            </Link>
+          )}
+        </Flex>
+      </Box>
+    </Flex>
   );
 };

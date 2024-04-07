@@ -69,10 +69,10 @@ export const PhotoBody: React.FC<PhotoBodyProps> = (props) => {
           </Grid>
         </Box>
         <Box>
-          {data.breadcrumbs.length > 0 && (
-            <Breadcrumbs data={_getBreadcrumbsText(data.breadcrumbs)} />
-          )}
           <Flex className="flex-col gap-1">
+            {data.breadcrumbs.length > 0 && (
+              <Breadcrumbs data={_getBreadcrumbsText(data.breadcrumbs)} />
+            )}
             {data.location.name && (
               <IconText icon="map-pin" text={data.location.name} />
             )}

@@ -4,10 +4,10 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import classNames from 'classnames';
 import { type Photo } from '@api';
-import { LikeButton, UserProfile } from '@components';
+import { Box, LikeButton, UserProfile } from '@components';
 
 interface PhotoCardProps {
-  data: Photo;
+  data: Photo; // TODO:
 }
 
 export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
@@ -37,12 +37,16 @@ export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
         width={data.width}
         height={data.height}
       />
-      <div className={`absolute right-4 top-4 transition ${hoveredClasses}`}>
+      <Box className={`absolute right-4 top-4 transition ${hoveredClasses}`}>
         <LikeButton />
-      </div>
-      <div className={`absolute left-4 bottom-4 transition ${hoveredClasses}`}>
-        <UserProfile data={data.user} />
-      </div>
+      </Box>
+      <Box className={`absolute left-4 bottom-4 transition ${hoveredClasses}`}>
+        <UserProfile
+          data={data.user}
+          userNameTextColor="text-gray-200 hover:text-gray-50"
+          subTextColor="text-gray-300 hover:text-gray-100"
+        />
+      </Box>
     </figure>
   );
 };
