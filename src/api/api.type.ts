@@ -101,6 +101,7 @@ export interface PhotoDetailLinks {
 }
 
 export interface Location {
+  name: string;
   city: string;
   country: string;
   position: Position;
@@ -111,8 +112,25 @@ export interface Position {
   longitude: number;
 }
 
+export interface TagSource {
+  title: string;
+  subtitle: string;
+  meta_title: string;
+  meta_description: string;
+  description: string;
+}
+
 export interface Tag {
   title: string;
+  type: string;
+  source: TagSource;
+}
+
+export interface Breadcrumb {
+  index: number;
+  slug: string;
+  title: string;
+  type: string;
 }
 
 export interface PhotoDetail {
@@ -135,4 +153,6 @@ export interface PhotoDetail {
   urls: Urls;
   links: PhotoDetailLinks;
   user: User;
+  views: number;
+  breadcrumbs: Breadcrumb[];
 }
