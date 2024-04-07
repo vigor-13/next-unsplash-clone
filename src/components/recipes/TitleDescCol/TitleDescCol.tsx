@@ -14,7 +14,7 @@ export const TitleDescCol: React.FC<TitleDescColProps> = (props) => {
       <Text as="h3" size="sm" className="text-stone-400 w-fit">
         {title}
       </Text>
-      <Text as="span" size="md">
+      <Text as="span" size="md" className="text-stone-900">
         {desc}
       </Text>
     </Box>
