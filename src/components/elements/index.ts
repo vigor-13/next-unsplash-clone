@@ -7,3 +7,4 @@ export * from './Modal';
 export * from './Spinner';
 export * from './Grid';
 export * from './Container';
+export * from './Box';
