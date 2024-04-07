@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
+import { Container, Box } from '@components';
 
 export interface ModalProps {
   children: React.ReactNode;
@@ -22,11 +23,18 @@ export const Modal: React.FC<ModalProps> = (props) => {
   }, []);
 
   return (
-    <div
-      className="fixed left-0 top-0 w-full h-full backdrop-blur-xs bg-stone-900/50 z-50"
+    <Box
+      className="cursor-zoom-out fixed left-0 top-0 w-full h-full backdrop-blur-xs bg-stone-900/50 z-50 overflow-y-auto"
       onClick={closeModal}
     >
-      {children}
-    </div>
+      <Box className="flex min-h-full py-4">
+        <Container
+          className="mx-auto cursor-default bg-white rounded"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {children}
+        </Container>
+      </Box>
+    </Box>
   );
 };

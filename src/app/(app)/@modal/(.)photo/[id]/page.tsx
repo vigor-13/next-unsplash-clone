@@ -1,9 +1,9 @@
-import { Modal } from '@components';
+import { Modal, PhotoScreen } from '@components';
 
 export default function Page() {
   return (
     <Modal>
-      <div>123</div>
+      <PhotoScreen />
     </Modal>
   );
 }

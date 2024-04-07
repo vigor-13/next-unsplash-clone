@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      maxWidth: {
+        '100vh': '100vh',
+        '50vh': '50vh',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

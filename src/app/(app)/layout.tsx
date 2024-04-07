@@ -8,9 +8,9 @@ interface AppLayoutProps {
 export default function AppLayout(props: AppLayoutProps) {
   const { children, modal } = props;
   return (
-    <>
-      <MainStructure>{children}</MainStructure>
+    <MainStructure>
+      {children}
       {modal}
-    </>
+    </MainStructure>
   );
 }
