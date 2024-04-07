@@ -8,7 +8,7 @@ export const Tag: React.FC<TagProps> = (props) => {
   const { text } = props;
 
   return (
-    <div className="rounded bg-stone-200 text-stone-500 w-fit py-0 px-2">
+    <div className="text-sm rounded bg-stone-200 text-stone-500 w-fit py-1 px-2">
       {text}
     </div>
   );
