@@ -70,6 +70,7 @@ export const SearchInput: React.FC<SearchInputProps> = (props) => {
           placeholder="고해상도 이미지 검색"
           onFocus={_handleFocus}
           onBlur={_handleBlur}
+          autoComplete="off"
           {...rest}
         />
       </Box>

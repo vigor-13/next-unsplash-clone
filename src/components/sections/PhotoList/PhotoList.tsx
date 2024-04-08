@@ -21,7 +21,6 @@ export const PhotoList: React.FC<PhotoListProps> = (props) => {
   const [windowWidth, setWindowWidth] = useState<null | number>(null);
   const [colsNumb, setColsNumb] = useState(0);
   const [chunkedArray, setChunkedArray] = useState<Photo[][] | null>(null);
-  const isDataReady = windowWidth && chunkedArray;
 
   React.useEffect(() => {
     function handleResize() {
@@ -48,34 +47,37 @@ export const PhotoList: React.FC<PhotoListProps> = (props) => {
     if (colsNumb > 0) setChunkedArray(chunkArray(data, colsNumb));
   }, [colsNumb, data]);
 
-  return isDataReady ? (
-    <>
-      <Grid className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4  items-start">
-        {chunkedArray.map((innerArray, i) => (
-          <Grid key={i} className="grid grid-cols-1 gap-y-4">
-            {innerArray.map((photo) => (
-              <PhotoCard key={photo.id} data={photo} />
-            ))}
-          </Grid>
-        ))}
-      </Grid>
-      {isFetching && (
-        <Flex className="justify-center py-10">
-          <Spinner />
-        </Flex>
-      )}
-      <InView
-        as="div"
-        rootMargin="0px 0px 40px 0px"
-        threshold={1}
-        onChange={(isBottom) => {
-          if (isBottom && onEndReached && data.length > 0 && !isFetching) {
-            onEndReached();
-          }
-        }}
-      />
-    </>
-  ) : (
-    <PhotoListSkeleton />
+  if (data.length === 0) return <div>No Data</div>;
+  if (data.length > 0 && !chunkedArray) return <PhotoListSkeleton />;
+
+  return (
+    chunkedArray && (
+      <>
+        <Grid className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4  items-start">
+          {chunkedArray.map((innerArray, i) => (
+            <Grid key={i} className="grid grid-cols-1 gap-y-4">
+              {innerArray.map((photo) => (
+                <PhotoCard key={photo.id} data={photo} />
+              ))}
+            </Grid>
+          ))}
+        </Grid>
+        {isFetching && (
+          <Flex className="justify-center py-10">
+            <Spinner />
+          </Flex>
+        )}
+        <InView
+          as="div"
+          rootMargin="0px 0px 40px 0px"
+          threshold={1}
+          onChange={(isBottom) => {
+            if (isBottom && onEndReached && data.length > 0 && !isFetching) {
+              onEndReached();
+            }
+          }}
+        />
+      </>
+    )
   );
 };
