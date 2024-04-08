@@ -25,6 +25,7 @@ export const PhotoScreen: React.FC<PhotoScreenProps> = (props) => {
     },
   });
 
+  // TODO: Suspense 적용
   return api.status === 'pending' ? (
     <Box className="px-5 py-5">
       <PhotoDetailHeaderSkeleton />

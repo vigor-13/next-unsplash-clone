@@ -78,7 +78,7 @@ export const PhotoBody: React.FC<PhotoBodyProps> = (props) => {
             )}
             <IconText
               icon="calendar-time"
-              text={dateFromNow(data.created_at)}
+              text={`${dateFromNow(data.created_at)}에 게시됨`}
             />
             {data.exif.name && <IconText icon="camera" text={data.exif.name} />}
           </Flex>

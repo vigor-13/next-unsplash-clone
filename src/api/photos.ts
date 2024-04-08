@@ -7,7 +7,7 @@ export interface GetPhotosQueryParams {
   per_page?: number;
 }
 export const getPhotos = (params: GetPhotosQueryParams) => {
-  const { page, per_page = 20 } = params;
+  const { page, per_page = 10 } = params;
 
   return api<Photo[]>('/photos', {
     params: {

@@ -6,7 +6,11 @@ export const makeQueryClient = () => {
   return new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 60 * 1000,
+        refetchOnMount: false,
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: false,
+        gcTime: 1000 * 60 * 60,
+        staleTime: 10 * 1000,
       },
     },
   });

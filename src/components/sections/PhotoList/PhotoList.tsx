@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import { Photo } from '@api';
-import { PhotoCard, PhotoListSkeleton, Spinner } from '@components';
+import { PhotoCard, PhotoListSkeleton, Spinner, Grid, Flex } from '@components';
 import { chunkArray, getColsNumb } from './PhotoList.lib';
 
 export interface PhotoListProps {
@@ -50,19 +50,19 @@ export const PhotoList: React.FC<PhotoListProps> = (props) => {
 
   return isDataReady ? (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4  items-start">
+      <Grid className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4  items-start">
         {chunkedArray.map((innerArray, i) => (
-          <div key={i} className="grid grid-cols-1 gap-y-4">
+          <Grid key={i} className="grid grid-cols-1 gap-y-4">
             {innerArray.map((photo) => (
               <PhotoCard key={photo.id} data={photo} />
             ))}
-          </div>
+          </Grid>
         ))}
-      </div>
+      </Grid>
       {isFetching && (
-        <div className="flex justify-center py-10">
+        <Flex className="justify-center py-10">
           <Spinner />
-        </div>
+        </Flex>
       )}
       <InView
         as="div"

@@ -15,7 +15,12 @@ export default async function HomePage() {
       const response = await getPhotos({ page: pageParam });
       return response;
     },
-    initialPageParam: 0,
+    initialPageParam: 1,
+    getNextPageParam: (lastPage, _allPages, lastPageParam) => {
+      if (lastPage.length === 0) return;
+      return lastPageParam + 1;
+    },
+    pages: 1,
   });
 
   return (
