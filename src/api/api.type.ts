@@ -156,3 +156,41 @@ export interface PhotoDetail {
   views: number;
   breadcrumbs: Breadcrumb[];
 }
+
+export interface TopicLinks {
+  self: string;
+  html: string;
+  photos: string;
+}
+
+export interface PreviewPhoto {
+  asset_type: string;
+  blur_hash: string;
+  created_at: Date;
+  id: string;
+  slug: string;
+  updated_at: Date;
+  urls: Urls;
+}
+
+export interface Topic {
+  cover_photo: Photo;
+  current_user_contributions: [];
+  description: string;
+  starts_at: Date;
+  ends_at: Date;
+  published_at: Date;
+  updated_at: Date;
+  featured: boolean;
+  id: string;
+  links: TopicLinks;
+  only_submissions_after: null;
+  owners: User[];
+  preview_photos: PreviewPhoto[];
+  slug: string;
+  status: string;
+  title: string;
+  total_current_user_submissions: null;
+  total_photos: number;
+  visibility: string;
+}

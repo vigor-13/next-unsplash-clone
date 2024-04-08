@@ -1,4 +1,3 @@
-import { QueryFunction } from '@tanstack/react-query';
 import { Photo, PhotoDetail } from '.';
 import { api } from './api';
 
