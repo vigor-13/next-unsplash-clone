@@ -6,13 +6,13 @@ import { capitalize } from '@libs';
 
 export const PhotosScreen: React.FC = () => {
   const { query } = useParams<{ query: string }>();
-  const decodedQuery = capitalize(decodeURIComponent(query));
+  const title = capitalize(decodeURIComponent(query));
 
   return (
     <Box className="px-4">
       <Box className="py-4">
         <Text as="h1" bold size="3xl">
-          {decodedQuery}
+          {title}
         </Text>
       </Box>
       <SearchPhotoList />

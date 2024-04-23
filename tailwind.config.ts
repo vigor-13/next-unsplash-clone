@@ -26,8 +26,9 @@ const config: Config = {
       backdropBlur: {
         xs: '2px',
       },
+      scrollbar: {},
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 };
 export default config;
