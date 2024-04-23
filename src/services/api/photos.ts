@@ -1,4 +1,4 @@
-import { Photo, PhotoDetail } from '.';
+import { Photo, PhotoDetail } from './photos.type';
 import { api } from './api';
 
 export interface GetPhotosQueryParams {

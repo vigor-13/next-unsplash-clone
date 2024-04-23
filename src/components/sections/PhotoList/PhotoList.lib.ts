@@ -1,4 +1,4 @@
-import { Photo } from '@api';
+import { Photo } from '@/services/api';
 
 export const chunkArray = (array: Photo[], colsNumb: number) => {
   const dividedArrays: Photo[][] = Array.from({ length: colsNumb }, () => []);

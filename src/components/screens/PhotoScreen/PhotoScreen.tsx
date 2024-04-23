@@ -9,7 +9,7 @@ import {
   PhotoDetailHeaderSkeleton,
   PhotoDetailBodySkeleton,
 } from '@components';
-import { getPhoto } from '@api';
+import { getPhoto } from '@/services/api';
 
 export interface PhotoScreenProps {}
 

@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import classNames from 'classnames';
-import { type Photo } from '@api';
+import { type Photo } from '@/services/api';
 import { Box, LikeButton, UserProfile } from '@components';
 
 interface PhotoCardProps {

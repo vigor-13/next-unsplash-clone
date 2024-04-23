@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
-import { Breadcrumb, PhotoDetail, Tag } from '@api';
+import { Breadcrumb, PhotoDetail, Tag } from '@/services/api';
 import {
   TitleDescCol,
   EllipsisButton,

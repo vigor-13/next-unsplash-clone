@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { getPhotos } from '@api';
+import { getPhotos } from '@/services/api';
 import { PhotoList } from '../PhotoList';
 import { PhotoListSkeleton } from '@/components';
 
@@ -14,6 +14,7 @@ export const MainPhotoList = () => {
     },
     initialPageParam: 2,
     select: (data) => {
+      console.log(data);
       // TODO: Zustand 사용하여 객체로 중복제거하도록 해야함
       const filtteredData = data.pages
         .flat(2)

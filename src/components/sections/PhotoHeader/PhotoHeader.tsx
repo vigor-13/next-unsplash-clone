@@ -1,6 +1,6 @@
 import React from 'react';
 import { UserProfile, LikeButton, Box } from '@components';
-import { PhotoDetail } from '@api';
+import { PhotoDetail } from '@/services/api';
 
 export interface PhotoHeaderProps {
   data: PhotoDetail;

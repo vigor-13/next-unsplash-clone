@@ -1,4 +1,4 @@
-import { Photo } from '.';
+import { Photo } from './photos.type';
 import { api } from './api';
 
 export interface GetSearchPhotosParams {

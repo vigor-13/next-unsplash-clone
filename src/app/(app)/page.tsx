@@ -4,19 +4,11 @@ import {
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query';
-import { getPhotos } from '@api';
+import { getPhotos } from '@/services/api';
 import { Box, MainBanner, MainPhotoList } from '@components';
 
 export default async function HomePage() {
   const queryClient = new QueryClient();
-
-  // await queryClient.prefetchQuery({
-  //   queryKey: ['topics'],
-  //   queryFn: async () => {
-  //     const response = await getTopics({});
-  //     return response;
-  //   },
-  // });
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: ['photos'],

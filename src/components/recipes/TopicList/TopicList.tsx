@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Box, Flex, Text } from '@components';
-import { getTopics } from '@api';
+import { getTopics } from '@/services/api';
 
 export const TopicList: React.FC = async () => {
   // TODO: 에러 처리
