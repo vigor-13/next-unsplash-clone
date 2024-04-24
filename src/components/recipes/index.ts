@@ -6,4 +6,9 @@ export * from './Breadcrumbs';
 export * from './IconText';
 export * from './TagList';
 export * from './SearchInput';
+
+/**
+ * TOPIC
+ */
 export * from './TopicList';
+export * from './TopicBanner';

@@ -1,6 +1,9 @@
 import { Photo } from './photos.type';
 import { api } from './api';
 
+/**
+ * 키워드 검색 결과 사진 리스트
+ */
 export interface GetSearchPhotosParams {
   query: string;
   page: number;

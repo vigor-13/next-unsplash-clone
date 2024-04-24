@@ -11,6 +11,7 @@ const config: Config = {
       maxWidth: {
         '100vh': '100vh',
         '50vh': '50vh',
+        '600': '600px',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -26,7 +27,14 @@ const config: Config = {
       backdropBlur: {
         xs: '2px',
       },
-      scrollbar: {},
+      height: {
+        'topic-banner-pc': '594px',
+        'topic-banner-tablet': '310px',
+        'topic-banner-mobile': '230px',
+      },
+      textShadow: {
+        default: '2px 2px 4px rgba(0, 0, 0, 0.5)',
+      },
     },
   },
   plugins: [require('tailwind-scrollbar-hide')],

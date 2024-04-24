@@ -3,17 +3,15 @@ import { Logo, SearchInput, MainNavigation, TopicList } from '@components';
 
 export const Header: React.FC = () => {
   return (
-    <>
-      <header className="sticky top-0 bg-white z-50">
-        <div className="flex justify-between items-center px-4 py-3">
-          <Logo />
-          <div className="flex-1 px-3">
-            <SearchInput />
-          </div>
-          <MainNavigation />
+    <header className="sticky top-0 bg-white z-50">
+      <div className="flex justify-between items-center px-4 py-3">
+        <Logo />
+        <div className="flex-1 px-3">
+          <SearchInput />
         </div>
-        <TopicList />
-      </header>
-    </>
+        <MainNavigation />
+      </div>
+      <TopicList />
+    </header>
   );
 };
