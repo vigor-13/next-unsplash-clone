@@ -1,5 +1,5 @@
 import React from 'react';
-import { Logo, SearchInput, MainNavigation, TopicList } from '@components';
+import { Logo, SearchInput, MainNavigation } from '@components';
 
 export const Header: React.FC = () => {
   return (
@@ -11,7 +11,6 @@ export const Header: React.FC = () => {
         </div>
         <MainNavigation />
       </div>
-      <TopicList />
     </header>
   );
 };

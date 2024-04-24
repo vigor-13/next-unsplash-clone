@@ -1,15 +1,15 @@
-import { MainStructure } from '@components';
+import { MainStructure, WithTopicList } from '@components';
 
 interface AppLayoutProps {
   children: React.ReactNode;
   modal: React.ReactNode;
 }
 
-export default function AppLayout(props: AppLayoutProps) {
+export default function MainLayout(props: AppLayoutProps) {
   const { children, modal } = props;
   return (
     <MainStructure>
-      {children}
+      <WithTopicList>{children}</WithTopicList>
       {modal}
     </MainStructure>
   );
