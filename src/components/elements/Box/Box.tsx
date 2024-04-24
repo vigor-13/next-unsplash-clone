@@ -8,7 +8,6 @@ export interface BoxProps
 
 export const Box: React.FC<BoxProps> = (props) => {
   const { children, className, ...rest } = props;
-
   const classes = classNames(className);
 
   return (
