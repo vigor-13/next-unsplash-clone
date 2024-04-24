@@ -5,11 +5,10 @@ import {
   QueryClient,
 } from '@tanstack/react-query';
 import { getPhotos } from '@/services/api';
-import { Box, MainBanner, MainPhotoList } from '@components';
+import { HomeScreen } from '@/components';
 
 export default async function HomePage() {
   const queryClient = new QueryClient();
-
   await queryClient.prefetchInfiniteQuery({
     queryKey: ['photos'],
     queryFn: async ({ pageParam }) => {
@@ -26,12 +25,9 @@ export default async function HomePage() {
 
   return (
     <>
-      <MainBanner />
-      <Box className="px-4">
-        <HydrationBoundary state={dehydrate(queryClient)}>
-          <MainPhotoList />
-        </HydrationBoundary>
-      </Box>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <HomeScreen />
+      </HydrationBoundary>
     </>
   );
 }

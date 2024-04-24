@@ -11,4 +11,5 @@ export * from './SearchInput';
  * TOPIC
  */
 export * from './TopicList';
+export * from './TopicListItem';
 export * from './TopicBanner';

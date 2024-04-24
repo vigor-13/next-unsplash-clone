@@ -22,7 +22,9 @@ export const TopicsScreen: React.FC = () => {
   });
 
   return api.status === 'pending' ? (
-    <TopicGridSkeleton />
+    <Box className="p-4">
+      <TopicGridSkeleton />
+    </Box>
   ) : api.status === 'error' ? (
     <div>Error</div>
   ) : (
