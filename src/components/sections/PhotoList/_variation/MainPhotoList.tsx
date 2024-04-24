@@ -14,7 +14,6 @@ export const MainPhotoList = () => {
     },
     initialPageParam: 2,
     select: (data) => {
-      console.log(data);
       // TODO: Zustand 사용하여 객체로 중복제거하도록 해야함
       const filtteredData = data.pages
         .flat(2)

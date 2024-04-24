@@ -42,9 +42,17 @@ export const getTopic = (params: GetTopicParams) => {
  */
 export interface GetTopicsPhotosParams {
   idOrSlug: string;
+  page?: number;
+  per_page?: number;
+  orientation?: 'landscape' | 'portrait' | 'squarish';
 }
 export const getTopicsPhotos = (params: GetTopicsPhotosParams) => {
-  const { idOrSlug } = params;
+  const { idOrSlug, page = 1, per_page = 10, orientation } = params;
 
-  return api<Photo[]>(`/topics/${idOrSlug}/photos`);
+  return api<Photo[]>(`/topics/${idOrSlug}/photos`, {
+    params: {
+      page: String(page),
+      per_page: String(per_page),
+    },
+  });
 };
