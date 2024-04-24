@@ -1,9 +1,9 @@
 import React from 'react';
-import { Text, Button } from '@components';
+import { Text, Button, Box } from '@components';
 
 export default function NotFound() {
   return (
-    <div className="flex h-full justify-center items-center">
+    <div className="flex flex-1 h-full justify-center items-center">
       <div className="mr-5 text-right">
         <Text as="h1" size="4xl" bold>
           404
