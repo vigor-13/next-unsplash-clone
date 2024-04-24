@@ -42,7 +42,7 @@ export interface PhotoDetail {
   public_domain: boolean;
   description: string;
   exif: Exif;
-  location: Location;
+  location: PhotoLocation;
   tags: Tag[];
   current_user_collections: CurrentUserCollection[];
   urls: PhotoUrls;
@@ -96,4 +96,11 @@ export interface Breadcrumb {
   slug: string;
   title: string;
   type: string;
+}
+
+export interface PhotoLocation {
+  city: null | string;
+  country: null | string;
+  name: null | string;
+  position: { latitude: number; longitude: number };
 }
