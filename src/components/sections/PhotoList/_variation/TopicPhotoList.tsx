@@ -2,7 +2,7 @@
 import { useParams } from 'next/navigation';
 import React from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { getTopicsPhotos } from '@api';
+import { getTopicsPhotos } from '@/services/api';
 import { PhotoListSkeleton } from '@/components';
 import { PhotoList } from '../PhotoList';
 

@@ -11,8 +11,8 @@ import {
   IconText,
   Flex,
   TagList,
-} from '@components';
-import { numberFormatting, dateFromNow } from '@libs';
+} from '@/components';
+import { numberFormatting, dateFromNow } from '@/libs';
 
 export interface PhotoBodyProps {
   data: PhotoDetail;

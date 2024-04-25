@@ -1,4 +1,4 @@
-import { PhotoScreen } from '@components';
+import { PhotoScreen } from '@/components';
 
 export default function Page() {
   return <PhotoScreen />;

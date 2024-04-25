@@ -1,5 +1,5 @@
 'use client';
-import { Modal, PhotoScreen } from '@components';
+import { Modal, PhotoScreen } from '@/components';
 import { usePathname } from 'next/navigation';
 
 export default function Page() {

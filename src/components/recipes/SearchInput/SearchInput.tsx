@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import classNames from 'classnames';
 import { IconSearch } from '@tabler/icons-react';
-import { SystemComponentProps, Box } from '@components';
+import { SystemComponentProps, Box } from '@/components';
 
 export interface SearchInputProps
   extends SystemComponentProps,

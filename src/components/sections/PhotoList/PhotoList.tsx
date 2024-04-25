@@ -2,7 +2,13 @@
 import React, { useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import { Photo } from '@/services/api';
-import { PhotoCard, PhotoListSkeleton, Spinner, Grid, Flex } from '@components';
+import {
+  PhotoCard,
+  PhotoListSkeleton,
+  Spinner,
+  Grid,
+  Flex,
+} from '@/components';
 import { chunkArray, getColsNumb } from './PhotoList.lib';
 
 export interface PhotoListProps {

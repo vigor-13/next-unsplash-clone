@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, TopicListItem } from '@components';
+import { Box, Flex, TopicListItem } from '@/components';
 import { getTopics } from '@/services/api';
 
 export interface TopicListProps {}

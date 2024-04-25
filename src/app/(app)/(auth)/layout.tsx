@@ -1,4 +1,4 @@
-import { MainStructure } from '@components';
+import { MainStructure } from '@/components';
 
 interface AuthLayoutProps {
   children: React.ReactNode;

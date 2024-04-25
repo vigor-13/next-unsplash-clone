@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
 import { useParams } from 'next/navigation';
-import { Box, Text, SearchPhotoList } from '@components';
-import { capitalize } from '@libs';
+import { Box, Text, SearchPhotoList } from '@/components';
+import { capitalize } from '@/libs';
 
 export const PhotosScreen: React.FC = () => {
   const { query } = useParams<{ query: string }>();

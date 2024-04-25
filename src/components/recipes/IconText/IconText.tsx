@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconCamera, IconMapPin, IconCalendarTime } from '@tabler/icons-react';
-import { Text } from '@components';
+import { Text } from '@/components';
 
 export interface IconTextProps {
   icon: 'map-pin' | 'calendar-time' | 'camera';

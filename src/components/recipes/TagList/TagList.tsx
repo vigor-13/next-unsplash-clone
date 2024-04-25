@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tag, Flex } from '@components';
+import { Tag, Flex } from '@/components';
 import { useRouter } from 'next/navigation';
 
 export interface TagListProps {

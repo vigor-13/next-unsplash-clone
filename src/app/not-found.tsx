@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button, Box } from '@components';
+import { Text, Button } from '@/components';
 
 export default function NotFound() {
   return (

@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { Container, Box } from '@components';
+import { Container, Box } from '@/components';
 
 export interface ModalProps {
   children: React.ReactNode;

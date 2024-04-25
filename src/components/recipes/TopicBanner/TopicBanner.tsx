@@ -1,6 +1,6 @@
 import React from 'react';
-import { TopicDetail } from '@api';
-import { Box, Flex, Text } from '@components';
+import { TopicDetail } from '@/services/api';
+import { Box, Flex, Text } from '@/components';
 
 export interface TopicBannerProps {
   imgUrl: string;

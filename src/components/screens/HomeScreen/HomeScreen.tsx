@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, MainBanner, MainPhotoList, TopicList } from '@components';
+import { Box, MainBanner, MainPhotoList } from '@/components';
 
 export interface HomeScreenProps {}
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchInput, Text } from '@components';
+import { SearchInput, Text } from '@/components';
 
 export const MainBanner: React.FC = () => {
   return (

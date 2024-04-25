@@ -1,13 +1,13 @@
 'use client';
 import React from 'react';
 import { useParams } from 'next/navigation';
-import { getTopic } from '@api';
+import { getTopic } from '@/services/api';
 import {
   Box,
   TopicBanner,
   TopicPhotoList,
   TopicGridSkeleton,
-} from '@components';
+} from '@/components';
 import { useQuery } from '@tanstack/react-query';
 
 export const TopicsScreen: React.FC = () => {

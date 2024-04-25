@@ -8,7 +8,7 @@ import {
   Box,
   PhotoDetailHeaderSkeleton,
   PhotoDetailBodySkeleton,
-} from '@components';
+} from '@/components';
 import { getPhoto } from '@/services/api';
 
 export interface PhotoScreenProps {}

@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { SystemComponentProps } from '@components';
+import { SystemComponentProps } from '@/components';
 
 export interface BoxProps
   extends SystemComponentProps,

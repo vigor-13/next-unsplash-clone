@@ -4,7 +4,7 @@ import Image from 'next/image';
 import classNames from 'classnames';
 import { IconRosetteDiscountCheckFilled } from '@tabler/icons-react';
 import { type User } from '@/services/api';
-import { Text, Flex, Box } from '@components';
+import { Text, Flex, Box } from '@/components';
 
 interface UserProfileProps {
   data: User; // TODO:

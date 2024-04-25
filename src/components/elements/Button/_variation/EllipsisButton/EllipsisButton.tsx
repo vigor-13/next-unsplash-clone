@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconDots } from '@tabler/icons-react';
-import { Button } from '@components';
+import { Button } from '@/components';
 
 export const EllipsisButton: React.FC = () => {
   return (

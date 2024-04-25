@@ -3,7 +3,7 @@ import React from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useParams } from 'next/navigation';
 import { getSearchPhotos } from '@/services/api';
-import { PhotoList, PhotoListSkeleton } from '@components';
+import { PhotoList, PhotoListSkeleton } from '@/components';
 
 export const SearchPhotoList: React.FC = () => {
   const { query } = useParams<{ query: string }>();

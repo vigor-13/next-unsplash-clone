@@ -1,4 +1,4 @@
-import { MainStructure, WithTopicList } from '@components';
+import { MainStructure, WithTopicList } from '@/components';
 
 interface AppLayoutProps {
   children: React.ReactNode;
