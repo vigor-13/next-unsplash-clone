@@ -22,10 +22,10 @@ export const TopicBanner: React.FC<TopicBannerProps> = (props) => {
       <Box className="absolute left-0 top-0 w-full h-full">
         <Flex className="h-full items-center flex-1 px-4 sm:px-12">
           <Flex className="flex-col">
-            <Text bold className="mb-3 text-white text-xl sm:text-4xl">
+            <Text className="mb-3 text-white text-xl sm:text-4xl font-bold">
               {title}
             </Text>
-            <Text size="md" className="text-white max-w-600 hidden sm:block">
+            <Text className="text-white max-w-600 hidden sm:block text-md">
               {description}
             </Text>
           </Flex>

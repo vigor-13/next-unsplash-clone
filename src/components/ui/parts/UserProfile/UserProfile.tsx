@@ -16,6 +16,7 @@ export const UserProfile: React.FC<UserProfileProps> = (props) => {
   const { data, userNameTextColor, subTextColor } = props;
 
   const userNameTextClasses = classNames(
+    'text-md',
     userNameTextColor ? userNameTextColor : '',
   );
   const subTextClasses = classNames(
@@ -38,13 +39,13 @@ export const UserProfile: React.FC<UserProfileProps> = (props) => {
       </Link>
       <Box>
         <Link href="/">
-          <Text size="md" className={userNameTextClasses}>
-            {data.name}
-          </Text>
+          <Text className={userNameTextClasses}>{data.name}</Text>
         </Link>
         <Flex className={`items-center gap-1  ${subTextClasses}`}>
           <Link href="/">
-            <Text size="xs">{data.for_hire ? '고용 가능' : data.username}</Text>
+            <Text className="text-xs">
+              {data.for_hire ? '고용 가능' : data.username}
+            </Text>
           </Link>
           {data.for_hire && (
             <Link href="/">

@@ -11,7 +11,7 @@ export const PhotosScreen: React.FC = () => {
   return (
     <Box className="px-4">
       <Box className="py-4">
-        <Text as="h1" bold size="3xl">
+        <Text as="h1" className="font-bold text-3xl">
           {title}
         </Text>
       </Box>

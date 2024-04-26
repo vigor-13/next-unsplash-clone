@@ -20,7 +20,7 @@ export const TopicListItem: React.FC<TopicListItemProps> = (props) => {
     isActive ? 'border-b-2 border-black' : '',
   );
   const textClasses = classNames(
-    'text-stone-500 hover:text-black',
+    'text-stone-500 hover:text-black text-sm',
     isActive ? 'text-black' : '',
   );
 
