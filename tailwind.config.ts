@@ -35,6 +35,9 @@ const config: Config = {
       textShadow: {
         default: '2px 2px 4px rgba(0, 0, 0, 0.5)',
       },
+      gridTemplateColumns: {
+        '.65': '.65fr 1fr',
+      },
     },
   },
   plugins: [require('tailwind-scrollbar-hide')],
