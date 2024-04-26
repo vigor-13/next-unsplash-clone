@@ -10,3 +10,4 @@ export * from './Container';
 export * from './Box';
 export * from './Tag';
 export * from './SubButton';
+export * from './Input';

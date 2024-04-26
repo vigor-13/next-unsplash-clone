@@ -13,6 +13,9 @@ const config: Config = {
         '50vh': '50vh',
         '600': '600px',
       },
+      minWidth: {
+        '600': '600px',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

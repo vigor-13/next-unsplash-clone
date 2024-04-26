@@ -6,15 +6,8 @@ export * from './Breadcrumbs';
 export * from './IconText';
 export * from './TagList';
 export * from './SearchInput';
-
-/**
- * Topic
- */
 export * from './TopicList';
 export * from './TopicListItem';
 export * from './TopicBanner';
-
-/**
- * Auth
- */
 export * from './OauthButton';
+export * from './SignupFormHeader';
