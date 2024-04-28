@@ -28,7 +28,11 @@ export const Input: React.FC<InputProps> = (props) => {
     className,
   );
 
-  const labelClasses = classNames('block mb-1', error && '', labelStyle);
+  const labelClasses = classNames(
+    'block text-sm mb-1',
+    error && '',
+    labelStyle,
+  );
 
   return (
     <Box>

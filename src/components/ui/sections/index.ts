@@ -5,3 +5,4 @@ export * from './PhotoHeader';
 export * from './PhotoBody';
 export * from './SignupBanner';
 export * from './SignupForm';
+export * from './LoginForm';

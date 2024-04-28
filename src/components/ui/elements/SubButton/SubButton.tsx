@@ -15,7 +15,7 @@ export const SubButton: React.FC<SubButtonProps> = (props) => {
   const classes = classNames(
     'w-full h-11 rounded-md',
     'bg-black',
-    'text-white text-md',
+    'text-white text-sm',
     className,
   );
 

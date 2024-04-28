@@ -1,15 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
-import { Text, Flex, Box, OauthButton } from '@/components';
+import { Text, Flex, Box, OauthButton, LoginForm } from '@/components';
 
 export const LoginScreen: React.FC = () => {
   return (
     <Flex className="w-full items-center justify-center">
       <Box className="max-w-600 w-full px-6">
         <Flex className="flex-col items-center p-12">
-          <Text className="mb-3 font-bold text-2xl">로그인</Text>
-          <Text className="mb-8">재방문을 환영합니다.</Text>
-          <OauthButton provider="google" />
+          <Text className="mb-3 font-bold text-3xl">로그인</Text>
+          <Text className="text-sm">재방문을 환영합니다.</Text>
+          <Box className="w-full my-8">
+            <OauthButton provider="google" />
+          </Box>
+          <Text className="text-sm">또는</Text>
+          <LoginForm />
         </Flex>
         <Flex className="w-full py-10 border justify-center">
           <Text>
