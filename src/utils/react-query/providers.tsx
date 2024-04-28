@@ -30,7 +30,7 @@ interface ProvidersProps {
   children: React.ReactNode;
 }
 
-export const Providers = (props: ProvidersProps) => {
+export const QueryProviders = (props: ProvidersProps) => {
   const { children } = props;
   const queryClient = getQueryClient();
 
