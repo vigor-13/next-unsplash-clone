@@ -40,10 +40,23 @@ export async function signup(state: SignupFormState, formData: FormData) {
     },
   });
 
-  if (error) {
-    redirect('/error');
-  }
+  // TODO:
+  if (error) redirect('/error');
+  revalidatePath('/', 'layout');
+  redirect('/');
+}
 
+export async function login(formData: FormData) {
+  const data = {
+    email: formData.get('email') as string,
+    password: formData.get('password') as string,
+  };
+
+  const supabase = createClient();
+
+  const { error } = await supabase.auth.signInWithPassword(data);
+
+  if (error) redirect(`/login?flash=${error.status}`);
   revalidatePath('/', 'layout');
   redirect('/');
 }

@@ -16,7 +16,7 @@ export const LoginScreen: React.FC = () => {
           <LoginForm />
         </Flex>
         <Flex className="w-full py-10 border justify-center">
-          <Text>
+          <Text className="text-sm">
             계정이 없으세요?{' '}
             <Link href="/signup" className="underline text-stone-500">
               가입

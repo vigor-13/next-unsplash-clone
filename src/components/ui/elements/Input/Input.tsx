@@ -23,8 +23,8 @@ export const Input: React.FC<InputProps> = (props) => {
   } = props;
 
   const classes = classNames(
-    'border  rounded w-full min-h-10 align-middle px-3 py-1',
-    error ? 'border-red-300' : 'border-stone-500',
+    'transition border  rounded w-full min-h-10 align-middle px-3 py-1',
+    error ? 'border-red-300' : 'border-stone-300 hover:border-stone-500',
     className,
   );
 
