@@ -2,7 +2,7 @@
 import React from 'react';
 import { useFormStatus } from 'react-dom';
 import classNames from 'classnames';
-import { SystemComponentProps } from '@/components';
+import { SystemComponentProps, Spinner } from '@/components';
 
 export interface SubButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -13,7 +13,7 @@ export const SubButton: React.FC<SubButtonProps> = (props) => {
   const { pending } = useFormStatus();
 
   const classes = classNames(
-    'w-full h-11 rounded-md',
+    'w-full h-11 rounded-md flex justify-center items-center',
     'bg-black',
     'text-white text-sm',
     className,
@@ -21,7 +21,7 @@ export const SubButton: React.FC<SubButtonProps> = (props) => {
 
   return (
     <button className={classes} {...rest}>
-      {pending ? '...' : children}
+      {pending ? <Spinner size="xs" color="white" /> : children}
     </button>
   );
 };

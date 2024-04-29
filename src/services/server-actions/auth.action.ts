@@ -40,8 +40,11 @@ export async function signup(state: SignupFormState, formData: FormData) {
     },
   });
 
-  // TODO:
-  if (error) redirect('/error');
+  if (error) {
+    // TODO: 에러 페이지
+    redirect('/error');
+  }
+
   revalidatePath('/', 'layout');
   redirect('/');
 }
@@ -53,10 +56,12 @@ export async function login(formData: FormData) {
   };
 
   const supabase = createClient();
-
   const { error } = await supabase.auth.signInWithPassword(data);
 
-  if (error) redirect(`/login?flash=${error.status}`);
+  if (error) {
+    redirect(`/login?flash=${error.status}`);
+  }
+
   revalidatePath('/', 'layout');
   redirect('/');
 }
