@@ -12,3 +12,4 @@ export * from './Tag';
 export * from './SubButton';
 export * from './Input';
 export * from './FlashMessage';
+export * from './Profile';
