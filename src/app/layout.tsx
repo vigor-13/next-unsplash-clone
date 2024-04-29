@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { QueryProviders } from '@/utils';
-import { FlashMessage } from '@/components';
+import { System } from './components';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className={inter.className}>
         <QueryProviders>
-          <FlashMessage />
+          <System />
           {children}
         </QueryProviders>
       </body>
