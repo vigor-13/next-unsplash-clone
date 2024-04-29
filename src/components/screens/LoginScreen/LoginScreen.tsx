@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { Text, Flex, Box, OauthButton, LoginForm } from '@/components';
 
@@ -13,7 +13,10 @@ export const LoginScreen: React.FC = () => {
             <OauthButton provider="google" />
           </Box>
           <Text className="text-sm">또는</Text>
-          <LoginForm />
+          {/* TODO: */}
+          <Suspense>
+            <LoginForm />
+          </Suspense>
         </Flex>
         <Flex className="w-full py-10 border justify-center">
           <Text className="text-sm">
