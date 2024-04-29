@@ -41,8 +41,7 @@ export async function signup(state: SignupFormState, formData: FormData) {
   });
 
   if (error) {
-    // TODO: 에러 페이지
-    redirect('/error');
+    return redirect(`/signup?flash=${error.status}`);
   }
 
   revalidatePath('/', 'layout');

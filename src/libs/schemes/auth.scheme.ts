@@ -13,7 +13,7 @@ export const SignupFormSchema = z.object({
   name: z
     .string()
     .min(1, { message: '사용자 이름은 필수 입력 항목입니다.' })
-    .regex(/^[a-zA-Z0-9_]+$/, {
+    .regex(/^[\p{L}0-9_]+$/u, {
       message: '문자, 숫자 및 밑줄만 사용할 수 있습니다.',
     })
     .trim(),
