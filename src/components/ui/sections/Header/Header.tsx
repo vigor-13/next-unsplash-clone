@@ -1,5 +1,5 @@
 import React from 'react';
-import { Logo, SearchInput, MainNavigation } from '@/components';
+import { Logo, SearchInput, HeaderButtons } from '@/components';
 
 export const Header: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
         <div className="flex-1 px-3">
           <SearchInput />
         </div>
-        <MainNavigation />
+        <HeaderButtons />
       </div>
     </header>
   );
