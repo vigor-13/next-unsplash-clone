@@ -11,6 +11,8 @@
     "ts": "tsc --noEmit --incremental"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.6.4",
+    "@floating-ui/react": "^0.26.13",
     "@supabase/ssr": "^0.3.0",
     "@supabase/supabase-js": "^2.42.7",
     "@tabler/icons-react": "^3.1.0",

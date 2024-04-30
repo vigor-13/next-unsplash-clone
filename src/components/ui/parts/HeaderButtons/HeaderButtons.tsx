@@ -11,14 +11,14 @@ export const HeaderButtons: React.FC = async () => {
 
   return (
     <nav>
-      <ul className="flex gap-4">
+      <ul className="flex gap-3">
         {data.user ? (
           <>
             <li>
               <Button>사진 제출</Button>
             </li>
             <li>
-              <Profile />
+              <Profile data={data.user} />
             </li>
           </>
         ) : (
