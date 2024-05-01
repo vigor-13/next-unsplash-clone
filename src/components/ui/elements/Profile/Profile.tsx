@@ -42,6 +42,7 @@ export const Profile: React.FC<ProfileProps> = (props) => {
   const _logout = async () => {
     try {
       await supabase.auth.signOut();
+      setIsOpen(false);
       clearUser();
       window.location.href = '/';
     } catch (error) {
@@ -51,6 +52,7 @@ export const Profile: React.FC<ProfileProps> = (props) => {
   };
 
   const _goToProfilePage = (username: string) => {
+    setIsOpen(false);
     router.push(`/@${username}`);
   };
 
@@ -73,7 +75,6 @@ export const Profile: React.FC<ProfileProps> = (props) => {
         <PopBox
           ref={refs.setFloating}
           style={floatingStyles}
-          className=""
           {...getFloatingProps()}
         >
           <PopBoxItem onClick={() => _goToProfilePage(data.user_metadata.name)}>
