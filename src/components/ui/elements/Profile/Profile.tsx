@@ -50,6 +50,10 @@ export const Profile: React.FC<ProfileProps> = (props) => {
     }
   };
 
+  const _goToProfilePage = (username: string) => {
+    router.push(`/@${username}`);
+  };
+
   return (
     <>
       <Box
@@ -72,7 +76,9 @@ export const Profile: React.FC<ProfileProps> = (props) => {
           className=""
           {...getFloatingProps()}
         >
-          <PopBoxItem>프로필 보기</PopBoxItem>
+          <PopBoxItem onClick={() => _goToProfilePage(data.user_metadata.name)}>
+            프로필 보기
+          </PopBoxItem>
           <PopBoxItem
             onClick={_logout}
           >{`로그아웃 @${data.user_metadata.name}`}</PopBoxItem>
