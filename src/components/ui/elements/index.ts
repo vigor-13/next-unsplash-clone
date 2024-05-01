@@ -16,3 +16,4 @@ export * from './FlashMessage';
 export * from './Profile';
 export * from './PopBox';
 export * from './PopBoxItem';
+export * from './NoReuslt';

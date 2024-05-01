@@ -15,7 +15,9 @@ export const UserLayout: React.FC<UserLayoutProps> = async (props) => {
       <Box className="py-20 px-4">
         <UserInfo data={user} />
       </Box>
-      <UserTabButtons data={user} />
+      <Box className="mb-20">
+        <UserTabButtons data={user} />
+      </Box>
       {children}
     </>
   );
