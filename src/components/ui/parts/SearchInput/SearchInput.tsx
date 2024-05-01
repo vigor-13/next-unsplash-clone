@@ -19,8 +19,8 @@ export const SearchInput: React.FC<SearchInputProps> = (props) => {
 
   const formClasses = classNames(
     'flex items-center, w-full bg-stone-200 border transition overflow-hidden text-stone-500',
-    scale === 'md' && 'h-12',
-    scale === 'lg' && 'h-14',
+    scale === 'md' && 'h-10',
+    scale === 'lg' && 'h-12',
     variant === 'round' && 'rounded-full',
     variant === 'square' && 'rounded-md',
     className,
