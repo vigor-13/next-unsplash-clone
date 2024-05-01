@@ -1,9 +1,12 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { SystemComponentProps } from '@/components';
 
-export interface ButtonProps extends SystemComponentProps {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    SystemComponentProps {
   href?: string;
   variant?: 'primary' | 'ghost';
 }
@@ -15,6 +18,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     href,
     className,
     variant = 'primary',
+    ...rest
   } = props;
 
   const buttonClasses = classNames(
@@ -36,5 +40,9 @@ export const Button: React.FC<ButtonProps> = (props) => {
     );
   }
 
-  return <button className={buttonClasses}>{children}</button>;
+  return (
+    <button className={buttonClasses} {...rest}>
+      {children}
+    </button>
+  );
 };
