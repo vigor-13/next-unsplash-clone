@@ -11,3 +11,4 @@ export * from './TopicListItem';
 export * from './TopicBanner';
 export * from './OauthButton';
 export * from './SignupFormHeader';
+export * from './UserTabButtons';

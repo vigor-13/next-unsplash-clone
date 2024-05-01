@@ -1,8 +1,9 @@
 'use server';
 import React from 'react';
-import { Box, UserInfo } from '@/components';
+import { Box, UserInfo, UserTabButtons, TabButton, Text } from '@/components';
 import { createClient } from '@/utils/supabase/server';
 import { redirect, notFound } from 'next/navigation';
+import { IconPhoto, IconHeartFilled } from '@tabler/icons-react';
 
 export interface UserScreenProps {
   username: string;
@@ -29,9 +30,21 @@ export const UserScreen: React.FC<UserScreenProps> = async (props) => {
   }
 
   return (
-    <Box className="py-12 px-4">
-      <UserInfo data={data.user} />
-    </Box>
+    <>
+      <Box className="py-20 px-4">
+        <UserInfo data={data.user} />
+      </Box>
+      <UserTabButtons>
+        <TabButton href="/">
+          <IconPhoto size={16} />
+          <Text>사진 0</Text>
+        </TabButton>
+        <TabButton href="/" active>
+          <IconHeartFilled size={16} />
+          <Text>좋아요 0</Text>
+        </TabButton>
+      </UserTabButtons>
+    </>
   );
 };
 

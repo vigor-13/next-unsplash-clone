@@ -1,5 +1,7 @@
 export * from './Logo';
 export * from './Button';
+export * from './SubButton';
+export * from './TabButton';
 export * from './Text';
 export * from './Skeleton';
 export * from './Modal';
@@ -9,7 +11,6 @@ export * from './Flex';
 export * from './Container';
 export * from './Box';
 export * from './Tag';
-export * from './SubButton';
 export * from './Input';
 export * from './FlashMessage';
 export * from './Profile';
