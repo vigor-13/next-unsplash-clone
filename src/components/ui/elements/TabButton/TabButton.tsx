@@ -13,9 +13,9 @@ export const TabButton: React.FC<TabButtonProps> = (props) => {
   const { href, children, active = false } = props;
 
   const classes = classNames(
-    'h-10 flex items-center gap-2 text-sm',
+    'h-10 flex items-center gap-2 text-sm box-border border-b-2 border-transparent',
     active ? 'text-stone-800' : 'text-stone-400 hover:text-stone-800',
-    active && 'border-b-2 border-b-stone-800',
+    active && 'border-b-stone-800',
   );
 
   return (

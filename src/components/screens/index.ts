@@ -5,3 +5,4 @@ export * from './TopicsScreen';
 export * from './LoginScreen';
 export * from './SignupScreen';
 export * from './UserScreen';
+export * from './UserLikesScreen';
