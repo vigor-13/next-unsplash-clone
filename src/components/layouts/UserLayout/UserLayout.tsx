@@ -1,51 +1,22 @@
-'use server';
 import React from 'react';
 import { Box, UserInfo, UserTabButtons } from '@/components';
-
-import { createClient } from '@/utils/supabase/server';
-import { redirect, notFound } from 'next/navigation';
+import { User } from '@supabase/supabase-js';
 
 export interface UserLayoutProps {
   children: React.ReactNode;
-  username: string;
+  user: User;
 }
 
 export const UserLayout: React.FC<UserLayoutProps> = async (props) => {
-  const { children, username } = props;
-  const supabase = createClient();
-  const { data, error } = await supabase.auth.getUser();
-
-  if (error) {
-    switch (error.status) {
-      case 400:
-        return redirect('/login');
-      default:
-        return redirect('/error');
-    }
-  }
-
-  if (
-    !_isValidUsername(
-      decodeURIComponent(username),
-      data.user.user_metadata.name,
-    )
-  ) {
-    return notFound();
-  }
+  const { children, user } = props;
 
   return (
     <>
       <Box className="py-20 px-4">
-        <UserInfo data={data.user} />
+        <UserInfo data={user} />
       </Box>
-      <UserTabButtons data={data.user} />
+      <UserTabButtons data={user} />
       {children}
     </>
   );
-};
-
-const _isValidUsername = (input: string, username: string): boolean => {
-  if (input[0] !== '@') return false;
-  const inputUsername = input.slice(1);
-  return inputUsername === username;
 };
