@@ -25,13 +25,12 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
   const buttonClasses = classNames(
     'transition',
-    'bg-white',
     'flex items-center px-2.5 h-8',
     'text-sm text-stone-500 hover:text-stone-900',
     'border rounded hover:border-stone-900',
     variant !== 'ghost' && 'shadow-sm',
     variant === 'ghost' && 'border-0',
-    className,
+    className ? className : 'bg-white',
   );
 
   if (as === 'a' && href) {
