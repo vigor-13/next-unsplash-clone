@@ -8,11 +8,12 @@ import {
   Spinner,
   Grid,
   Flex,
+  NoResult,
 } from '@/components';
 import { chunkArray, getColsNumb } from './PhotoList.lib';
 
 export interface PhotoListProps {
-  data: Photo[];
+  data: Photo[]; // TODO: Photo 타입 그대로 쓰지말고 필요한 데이터 정의하기
   isFetching?: boolean;
   onEndReached?: () => void;
 }
@@ -53,7 +54,7 @@ export const PhotoList: React.FC<PhotoListProps> = (props) => {
     if (colsNumb > 0) setChunkedArray(chunkArray(data, colsNumb));
   }, [colsNumb, data]);
 
-  if (data.length === 0) return <div>No Data</div>;
+  if (data.length === 0) return <NoResult />;
   if (data.length > 0 && !chunkedArray) return <PhotoListSkeleton />;
 
   return (

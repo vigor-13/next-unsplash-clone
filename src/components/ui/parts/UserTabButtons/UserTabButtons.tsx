@@ -4,6 +4,7 @@ import { Flex, Box, TabButton, Text } from '@/components';
 import { IconPhoto, IconHeartFilled } from '@tabler/icons-react';
 import { usePathname } from 'next/navigation';
 import { User } from '@supabase/supabase-js';
+import { useUserStore } from '@/stores';
 
 export interface UserTabButtonsProps {
   data: User;
@@ -12,6 +13,7 @@ export interface UserTabButtonsProps {
 export const UserTabButtons: React.FC<UserTabButtonsProps> = (props) => {
   const { data } = props;
   const pathname = usePathname();
+  const { likes } = useUserStore((state) => state);
   const currentEndpoint = decodeURIComponent(pathname).split('/').pop();
 
   return (
@@ -29,7 +31,7 @@ export const UserTabButtons: React.FC<UserTabButtonsProps> = (props) => {
           active={currentEndpoint === 'likes'}
         >
           <IconHeartFilled size={16} />
-          <Text>좋아요 0</Text>
+          <Text>좋아요 {Object.values(likes).length}</Text>
         </TabButton>
       </Flex>
     </Box>
