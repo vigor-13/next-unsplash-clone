@@ -5,15 +5,19 @@ import Image from 'next/image';
 import classNames from 'classnames';
 import { type Photo } from '@/services/api';
 import { Box, LikeButton, UserProfile } from '@/components';
-
+import { createClient } from '@/utils/supabase/client';
+import { useUserStore } from '@/stores';
 interface PhotoCardProps {
-  data: Photo; // TODO:
+  data: Photo;
 }
 
 export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
   const { data } = props;
   const router = useRouter();
   const [isHovered, setIsHovered] = React.useState(false);
+  const supabase = createClient();
+  const { likes, toggleLikes } = useUserStore((state) => state);
+  const isLiked = likes[data.id] ? true : false;
 
   const hoveredClasses = classNames(
     isHovered ? 'opacity-100 visible' : 'opacity-0 invisible',
@@ -25,6 +29,17 @@ export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
 
   const goToDetailPage = () => {
     return router.push(`/photo/${data.id}`, { scroll: false });
+  };
+
+  const clickLikeButton = async (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // TODO:
+    const { data: userData } = await supabase.auth.getUser();
+    if (!userData.user) return router.push(`/login`);
+
+    return toggleLikes(data);
   };
 
   return (
@@ -42,7 +57,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
       />
       <Box className={backgroundClasses} />
       <Box className={`absolute right-4 top-4 transition ${hoveredClasses}`}>
-        <LikeButton />
+        <LikeButton onClick={clickLikeButton} active={isLiked} />
       </Box>
       <Box className={`absolute left-4 bottom-4 transition ${hoveredClasses}`}>
         <UserProfile

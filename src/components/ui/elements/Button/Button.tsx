@@ -9,6 +9,7 @@ export interface ButtonProps
     SystemComponentProps {
   href?: string;
   variant?: 'primary' | 'ghost';
+  prefetch?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
@@ -18,6 +19,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     href,
     className,
     variant = 'primary',
+    prefetch,
     ...rest
   } = props;
 
@@ -34,7 +36,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
   if (as === 'a' && href) {
     return (
-      <Link className={buttonClasses} href={href}>
+      <Link className={buttonClasses} href={href} prefetch={prefetch}>
         {children}
       </Link>
     );
