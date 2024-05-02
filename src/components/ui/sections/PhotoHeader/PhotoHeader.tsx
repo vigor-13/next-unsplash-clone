@@ -8,7 +8,6 @@ export interface PhotoHeaderProps {
 
 export const PhotoHeader: React.FC<PhotoHeaderProps> = (props) => {
   const { data } = props;
-  console.log(data);
 
   return (
     <Box className="sticky top-0 bg-white py-4 z-50">
