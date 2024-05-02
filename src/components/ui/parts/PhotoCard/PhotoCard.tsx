@@ -5,8 +5,8 @@ import Image from 'next/image';
 import classNames from 'classnames';
 import { type Photo } from '@/services/api';
 import { Box, LikeButton, UserProfile } from '@/components';
-import { createClient } from '@/utils/supabase/client';
-import { useUserStore } from '@/stores';
+import { useToggleLikes } from '@/hooks';
+
 interface PhotoCardProps {
   data: Photo;
 }
@@ -15,9 +15,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
   const { data } = props;
   const router = useRouter();
   const [isHovered, setIsHovered] = React.useState(false);
-  const supabase = createClient();
-  const { likes, toggleLikes } = useUserStore((state) => state);
-  const isLiked = likes[data.id] ? true : false;
+  const { toggleLikes, isLiked } = useToggleLikes({ data });
 
   const hoveredClasses = classNames(
     isHovered ? 'opacity-100 visible' : 'opacity-0 invisible',
@@ -34,12 +32,7 @@ export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
   const clickLikeButton = async (e: any) => {
     e.preventDefault();
     e.stopPropagation();
-
-    // TODO:
-    const { data: userData } = await supabase.auth.getUser();
-    if (!userData.user) return router.push(`/login`);
-
-    return toggleLikes(data);
+    toggleLikes();
   };
 
   return (

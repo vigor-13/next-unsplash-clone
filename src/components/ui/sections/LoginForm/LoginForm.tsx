@@ -6,7 +6,6 @@ import { useSystemUIStore } from '@/stores';
 import { createClient } from '@/utils/supabase/client';
 
 export const LoginForm: React.FC = () => {
-  const [formKey, setFormKey] = React.useState(0);
   const [pending, setPending] = React.useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -33,11 +32,6 @@ export const LoginForm: React.FC = () => {
     }
   };
 
-  const _action = async (formData: FormData) => {
-    setFormKey(formKey + 1);
-    return await _login(formData);
-  };
-
   React.useEffect(() => {
     if (urlQuery) {
       const flashMessageData = _createFlashMessage(Number(urlQuery));
@@ -45,11 +39,11 @@ export const LoginForm: React.FC = () => {
     }
 
     return clearFlashMessage;
-  }, [urlQuery, router, formKey, setFlashMessage, clearFlashMessage]);
+  }, [urlQuery, router, setFlashMessage, clearFlashMessage]);
 
   return (
     <Flex className="flex-col justify-center mx-auto w-full">
-      <form className="flex flex-col gap-6 mt-8" action={_action} key={formKey}>
+      <form className="flex flex-col gap-6 mt-8" action={_login}>
         <Input name="email" type="email" id="email" label="이메일" />
         <Input name="password" type="password" id="password" label="비밀번호" />
         <SubButton useServerAction={false} pending={pending}>

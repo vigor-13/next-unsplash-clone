@@ -2,12 +2,12 @@ import { User } from '@supabase/supabase-js';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
-import { type Photo } from '@/services';
+import { type PhotoDetail, type Photo } from '@/services';
 
 export interface UserState {
   user: User | null;
   likes: {
-    [id: string]: Photo;
+    [id: string]: Photo | PhotoDetail;
   };
 }
 
@@ -15,7 +15,7 @@ export interface UserAction {
   setUser: (data: User) => void;
   clearUser: () => void;
 
-  toggleLikes: (data: Photo) => void;
+  toggleLikes: (data: Photo | PhotoDetail) => void;
 }
 
 export const useUserStore = create<UserState & UserAction>()(
@@ -25,13 +25,21 @@ export const useUserStore = create<UserState & UserAction>()(
         (set) => ({
           user: null,
           setUser: (data) =>
-            set((state) => {
-              state.user = data;
-            }),
+            set(
+              (state) => {
+                state.user = data;
+              },
+              false,
+              'user/setUser',
+            ),
           clearUser: () =>
-            set((state) => {
-              state.user = null;
-            }),
+            set(
+              (state) => {
+                state.user = null;
+              },
+              false,
+              'user/clearUser',
+            ),
 
           likes: {},
           toggleLikes: (data) =>
