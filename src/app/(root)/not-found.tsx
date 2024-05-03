@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { Text, Button, Flex, Box } from '@/components';
 
@@ -11,11 +10,7 @@ const NotFound: React.FC = () => {
         </Text>
         <Text className="mt-2 text-stone-400">페이지를 찾을 수 없습니다.</Text>
       </Box>
-      <Button
-        onClick={() => {
-          location.href = '/';
-        }}
-      >
+      <Button as="a" href="/">
         홈으로 돌아가기
       </Button>
     </Flex>

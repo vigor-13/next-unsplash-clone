@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { QueryModal } from '../../_components';
 
 interface AppLayoutProps {
@@ -13,7 +13,9 @@ const AppLayout: React.FC<AppLayoutProps> = (props) => {
     <>
       {children}
       {modal}
-      <QueryModal />
+      <Suspense>
+        <QueryModal />
+      </Suspense>
     </>
   );
 };
