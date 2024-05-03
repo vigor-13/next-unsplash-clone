@@ -1,1 +1,1 @@
-export * from './QUeryModal';
+export * from './QueryModal';
