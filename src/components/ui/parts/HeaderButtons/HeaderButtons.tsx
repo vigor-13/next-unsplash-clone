@@ -1,24 +1,21 @@
 'use server';
 import React from 'react';
 import { Button, Profile } from '@/components';
-import { createClient } from '@/utils/supabase/server';
+import { getUser } from '@/utils/supabase/server.lib';
 
 export const HeaderButtons: React.FC = async () => {
-  const supabase = createClient();
-
-  // TODO: error handling;
-  const { data, error } = await supabase.auth.getUser();
+  const { user } = await getUser();
 
   return (
     <nav>
       <ul className="flex gap-3">
-        {data.user ? (
+        {user ? (
           <>
             <li>
               <Button>사진 제출</Button>
             </li>
             <li>
-              <Profile data={data.user} />
+              <Profile data={user} />
             </li>
           </>
         ) : (

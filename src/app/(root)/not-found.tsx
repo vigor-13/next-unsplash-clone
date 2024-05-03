@@ -1,16 +1,16 @@
 'use client';
 import React from 'react';
-import { Text, Button } from '@/components';
+import { Text, Button, Flex, Box } from '@/components';
 
-export default function NotFound() {
+const NotFound: React.FC = () => {
   return (
-    <div className="flex flex-1 h-full justify-center items-center">
-      <div className="mr-5 text-right">
+    <Flex className="flex flex-1 h-screen justify-center items-center">
+      <Box className="mr-5 text-right">
         <Text as="h1" className="font-bold text-4xl">
           404
         </Text>
         <Text className="mt-2 text-stone-400">페이지를 찾을 수 없습니다.</Text>
-      </div>
+      </Box>
       <Button
         onClick={() => {
           location.href = '/';
@@ -18,6 +18,8 @@ export default function NotFound() {
       >
         홈으로 돌아가기
       </Button>
-    </div>
+    </Flex>
   );
-}
+};
+
+export default NotFound;
