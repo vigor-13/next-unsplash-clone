@@ -19,7 +19,7 @@ export const PhotoHeader: React.FC<PhotoHeaderProps> = (props) => {
   };
 
   return (
-    <Box className="sticky top-0 bg-white py-4 z-50">
+    <Box className="sticky top-0 bg-white py-4 z-40">
       <header className="flex justify-between items-center">
         <UserProfile data={data.user} />
         <LikeButton onClick={clickLikeButton} active={isLiked} />

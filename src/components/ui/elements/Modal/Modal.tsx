@@ -7,6 +7,7 @@ export interface ModalProps {
   children: React.ReactNode;
 }
 
+let modalCount = 0;
 export const Modal: React.FC<ModalProps> = (props) => {
   const { children } = props;
   const router = useRouter();
@@ -16,15 +17,21 @@ export const Modal: React.FC<ModalProps> = (props) => {
   }, [router]);
 
   React.useEffect(() => {
-    document.body.style.overflow = 'hidden';
+    modalCount++;
+    if (modalCount === 1) {
+      document.body.style.overflow = 'hidden';
+    }
     return () => {
-      document.body.style.overflow = 'auto';
+      modalCount--;
+      if (modalCount === 0) {
+        document.body.style.overflow = 'auto';
+      }
     };
   }, []);
 
   return (
     <Box
-      className="cursor-zoom-out fixed left-0 top-0 w-full h-full backdrop-blur-xs bg-stone-900/50 z-50 overflow-y-auto"
+      className="cursor-zoom-out fixed left-0 top-0 w-full h-full backdrop-blur-xs bg-stone-900/50 z-modal overflow-y-auto"
       onClick={closeModal}
     >
       <Box className="flex min-h-full py-4">

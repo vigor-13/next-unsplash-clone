@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { QueryModal } from '../../_components';
+import { QueryModal } from '../_components';
 
 interface AppLayoutProps {
   children: React.ReactNode;

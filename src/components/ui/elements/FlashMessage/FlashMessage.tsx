@@ -15,7 +15,7 @@ export const FlashMessage: React.FC = () => {
   );
 
   const classes = classNames(
-    'fixed left-0 top-0 w-full h-16 z-50 transform transition-transform duration-300 ease-in-out',
+    'fixed left-0 top-0 w-full h-16 z-splash transform transition-transform duration-300 ease-in-out',
     flashMessage ? 'translate-y-0' : '-translate-y-full',
     type === 'error' && 'bg-red-500',
   );
