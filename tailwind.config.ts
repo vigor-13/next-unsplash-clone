@@ -41,6 +41,11 @@ const config: Config = {
       gridTemplateColumns: {
         '.65': '.65fr 1fr',
       },
+      zIndex: {
+        splash: '999',
+        header: '100',
+        modal: '100',
+      },
     },
   },
   plugins: [require('tailwind-scrollbar-hide')],

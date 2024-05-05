@@ -1,7 +1,7 @@
+import React from 'react';
 import { PhotoDetail, type Photo } from '@/services';
 import { useSupabaseStore, useUserStore } from '@/stores';
 import { useRouter } from 'next/navigation';
-import React from 'react';
 
 export interface useToggleLikesProps {
   data: Photo | PhotoDetail;
@@ -20,7 +20,7 @@ export const useToggleLikes = (props: useToggleLikesProps) => {
 
   const toggleLikes = async () => {
     const { data: userData, error } = await supabase!.auth.getUser();
-    if (error || !userData.user) return router.push(`/login`);
+    if (error || !userData.user) return router.push(`/?modal=login`);
 
     _toggleLikes(data);
   };

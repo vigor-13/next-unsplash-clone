@@ -1,16 +1,18 @@
-import { MainStructure, WithTopicList } from '@/components';
+import React from 'react';
+import { WithHeader } from '@/components';
 
-interface AppLayoutProps {
+interface MainLayoutProps {
   children: React.ReactNode;
-  modal: React.ReactNode;
+  // modal: React.ReactNode;
 }
 
-export default function MainLayout(props: AppLayoutProps) {
-  const { children, modal } = props;
+const MainLayout: React.FC<MainLayoutProps> = (props: MainLayoutProps) => {
+  const { children } = props;
   return (
-    <MainStructure>
-      <WithTopicList>{children}</WithTopicList>
-      {modal}
-    </MainStructure>
+    <>
+      <WithHeader>{children}</WithHeader>
+    </>
   );
-}
+};
+
+export default MainLayout;
