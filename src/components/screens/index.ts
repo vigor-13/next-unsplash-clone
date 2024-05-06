@@ -6,3 +6,4 @@ export * from './LoginScreen';
 export * from './SignupScreen';
 export * from './UserScreen';
 export * from './UserLikesScreen';
+export * from './AccountScreen';

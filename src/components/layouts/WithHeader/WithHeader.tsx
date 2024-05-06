@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '@/components/ui/sections';
+import { Header, Box } from '@/components';
 
 export interface WithHeaderProps {
   children: React.ReactNode;
@@ -9,9 +9,9 @@ export const WithHeader: React.FC<WithHeaderProps> = (props) => {
   const { children } = props;
 
   return (
-    <>
+    <Box className="h-screen flex flex-col">
       <Header />
       {children}
-    </>
+    </Box>
   );
 };

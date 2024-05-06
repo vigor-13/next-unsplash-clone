@@ -1,5 +1,5 @@
-import {} from '@/components';
+import { AccountScreen } from '@/components';
 
 export default function Page() {
-  return <div>Account Page</div>;
+  return <AccountScreen />;
 }
