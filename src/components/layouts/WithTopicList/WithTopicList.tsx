@@ -10,7 +10,7 @@ export const WithTopicList: React.FC<WithTopicListProps> = (props) => {
 
   return (
     <>
-      <Box className="sticky top-[66px] bg-white z-10">
+      <Box className="sticky top-[66px] bg-white z-50">
         <TopicList />
       </Box>
       {children}
