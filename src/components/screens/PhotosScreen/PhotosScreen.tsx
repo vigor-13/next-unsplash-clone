@@ -9,7 +9,7 @@ export const PhotosScreen: React.FC = () => {
   const title = capitalize(decodeURIComponent(query));
 
   return (
-    <Box className="px-4">
+    <Box className="px-4 lg:px-32 xl:px-40">
       <Box className="py-4">
         <Text as="h1" className="font-bold text-3xl">
           {title}

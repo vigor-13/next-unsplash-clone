@@ -34,7 +34,7 @@ export const TopicsScreen: React.FC = () => {
         title={api.data.title}
         description={api.data.description}
       />
-      <Box className="p-4">
+      <Box className="py-4 px-4 lg:px-32 lg:py-14 xl:px-40">
         <TopicPhotoList />
       </Box>
     </Box>
