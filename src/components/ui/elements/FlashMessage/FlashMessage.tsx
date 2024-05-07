@@ -7,9 +7,8 @@ import { useSystemUIStore } from '@/stores';
 import { type FlashMessageType } from './FlashMessage.type';
 
 export const FlashMessage: React.FC = () => {
-  const [message, setMessage] = React.useState('');
   const [type, setType] = React.useState<null | FlashMessageType>(null);
-
+  const [message, setMessage] = React.useState('');
   const { flashMessage, clearFlashMessage } = useSystemUIStore(
     (state) => state,
   );

@@ -5,7 +5,7 @@ import { useSupabaseStore, useUserStore } from '@/stores';
 import { usePathname } from 'next/navigation';
 import Cookies from 'js-cookie';
 
-export const Authentication: React.FC = () => {
+export const useAuthentication = () => {
   const pathname = usePathname();
   const supabase = createClient();
   const { setSupabase } = useSupabaseStore();
@@ -29,6 +29,4 @@ export const Authentication: React.FC = () => {
       Cookies.remove('user');
     }
   }, [pathname, checkUserSession, setUser]);
-
-  return null;
 };
