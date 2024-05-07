@@ -1,22 +1,28 @@
 'use client';
+import React from 'react';
+import { useSearchParams } from 'next/navigation';
 import { FlashMessageData } from '@/components';
 import { useSystemUIStore } from '@/stores';
-import { useSearchParams } from 'next/navigation';
-import React from 'react';
+import {
+  type ValidErrorCode,
+  getErrorMessage,
+  isValidErrorCode,
+} from '@/utils/error';
 
-const createMessage = (statusCode: string): FlashMessageData | undefined => {
-  switch (statusCode) {
-    case 'invalid-login-credentials':
-      return {
-        type: 'error',
-        message: '잘못된 이메일 또는 암호입니다.',
-      };
+const createFlashMessage = (
+  statusCode: string,
+): FlashMessageData | undefined => {
+  if (isValidErrorCode(statusCode)) {
+    return {
+      type: 'error',
+      message: getErrorMessage(statusCode),
+    };
   }
 };
 
 export const useFlashMessage = () => {
   const searchParams = useSearchParams();
-  const flash = searchParams.get('flash');
+  const flash = searchParams.get('flash') as ValidErrorCode;
   const timestamp = searchParams.get('t');
 
   const { setFlashMessage, clearFlashMessage } = useSystemUIStore(
@@ -24,11 +30,9 @@ export const useFlashMessage = () => {
   );
 
   React.useEffect(() => {
-    if (flash) {
-      const params = createMessage(flash);
-      if (params) setFlashMessage(params);
-    } else {
-      clearFlashMessage();
-    }
+    if (!flash) clearFlashMessage();
+
+    const params = createFlashMessage(flash);
+    if (params) setFlashMessage(params);
   }, [flash, timestamp, setFlashMessage, clearFlashMessage]);
 };

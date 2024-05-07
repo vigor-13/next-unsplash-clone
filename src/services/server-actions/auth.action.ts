@@ -4,15 +4,7 @@ import { redirect } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
 import { SignupFormSchema, SignupFormState } from '@/libs/schemes';
 import { cookies } from 'next/headers';
-
-const createSignupFlashCode = (status: number | undefined) => {
-  switch (status) {
-    case 400:
-      return 'invalid-login-credentials';
-    default:
-      return 'unknown-errors';
-  }
-};
+import { ValidErrorCode, validateErrorCode } from '@/utils/error';
 
 export async function signup(state: SignupFormState, formData: FormData) {
   const validatedData = SignupFormSchema.safeParse({
@@ -44,9 +36,7 @@ export async function signup(state: SignupFormState, formData: FormData) {
 
   if (error) {
     const currentTime = new Date().getTime();
-    redirect(
-      `/signup?flash=${createSignupFlashCode(error.status)}&t=${currentTime}`,
-    );
+    redirect(`/signup?flash=${validateErrorCode(error.code)}&t=${currentTime}`);
   }
 
   // 클라이언트에 이메일 인증이 필요햔지 알림 메시지 표시하기 위해 필요
@@ -55,15 +45,6 @@ export async function signup(state: SignupFormState, formData: FormData) {
   revalidatePath('/', 'layout');
   redirect('/');
 }
-
-const createLoginFlashCode = (status: number | undefined) => {
-  switch (status) {
-    case 400:
-      return 'invalid-login-credentials';
-    default:
-      return 'unknown-errors';
-  }
-};
 
 export async function login(formData: FormData) {
   const _formData = {
@@ -76,9 +57,12 @@ export async function login(formData: FormData) {
 
   if (error) {
     const currentTime = new Date().getTime();
-    redirect(
-      `/login?flash=${createLoginFlashCode(error.status)}&t=${currentTime}`,
-    );
+    let errorCode = error.code as ValidErrorCode;
+    if (!errorCode && error.status === 400) {
+      errorCode = 'invalid_login_credentials';
+    }
+
+    redirect(`/login?flash=${validateErrorCode(errorCode)}&t=${currentTime}`);
   }
 
   // 클라이언트 Authentication 컴포넌트에서 zustand store에 저장
