@@ -1,3 +1,4 @@
+'use client';
 import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { Text, Flex, Box, OauthButton, LoginForm } from '@/components';
@@ -13,7 +14,6 @@ export const LoginScreen: React.FC = () => {
             <OauthButton provider="google" />
           </Box>
           <Text className="text-sm">또는</Text>
-          {/* TODO: */}
           <Suspense>
             <LoginForm />
           </Suspense>

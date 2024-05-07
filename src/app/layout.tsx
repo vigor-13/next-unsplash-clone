@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { System } from './_components';
 import './global.css';
+import { Suspense } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +21,9 @@ const RootLayout: React.FC<RootLayoutProps> = (props) => {
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <System>{children}</System>
+        <Suspense>
+          <System>{children}</System>
+        </Suspense>
       </body>
     </html>
   );
