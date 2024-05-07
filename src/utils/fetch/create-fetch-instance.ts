@@ -1,4 +1,5 @@
 import qs from 'qs';
+import { CustomError } from '@/utils';
 
 export type FetchHeaders = Record<string, string>;
 
@@ -44,13 +45,12 @@ export const createFetchInstance = (props: CreateFetchInstanceProps) => {
       const response = await fetch(url, mergedOptions);
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new CustomError(`HTTP Error`, response.status);
       }
 
       const data = await response.json();
       return data as T;
     } catch (error) {
-      console.error('Error:', error);
       throw error;
     }
   };

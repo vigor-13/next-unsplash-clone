@@ -2,12 +2,14 @@
 import { useParams } from 'next/navigation';
 import React from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { getTopicsPhotos } from '@/services/api';
+import { type Photo, getTopicsPhotos } from '@/services/api';
 import { PhotoListSkeleton } from '@/components';
 import { PhotoList } from '../PhotoList';
 
 export const TopicPhotoList: React.FC = () => {
   const { query: slug } = useParams<{ query: string }>();
+
+  const [list, setList] = React.useState<Photo[]>([]);
   const api = useInfiniteQuery({
     queryKey: ['topic-photos', slug],
     queryFn: async ({ pageParam, queryKey }) => {
@@ -38,14 +40,15 @@ export const TopicPhotoList: React.FC = () => {
     },
   });
 
-  // TODO: Suspense 적용
-  return api.status === 'pending' ? (
-    <PhotoListSkeleton />
-  ) : api.status === 'error' ? (
-    <div>Error</div>
-  ) : (
+  React.useEffect(() => {
+    if (api.data?.pages) setList(api.data.pages);
+  }, [api.data?.pages]);
+
+  if (api.status === 'pending') return <PhotoListSkeleton />;
+
+  return (
     <PhotoList
-      data={api.data.pages}
+      data={list}
       isFetching={api.isFetching}
       onEndReached={api.fetchNextPage}
     />

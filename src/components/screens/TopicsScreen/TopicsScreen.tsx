@@ -7,6 +7,7 @@ import {
   TopicBanner,
   TopicPhotoList,
   TopicGridSkeleton,
+  NoResult,
 } from '@/components';
 import { useQuery } from '@tanstack/react-query';
 
@@ -21,13 +22,19 @@ export const TopicsScreen: React.FC = () => {
     },
   });
 
-  return api.status === 'pending' ? (
-    <Box className="p-4">
-      <TopicGridSkeleton />
-    </Box>
-  ) : api.status === 'error' ? (
-    <div>Error</div>
-  ) : (
+  if (api.status === 'pending') {
+    return (
+      <Box className="p-4">
+        <TopicGridSkeleton />
+      </Box>
+    );
+  }
+
+  if (api.status === 'error') {
+    return <NoResult />;
+  }
+
+  return (
     <Box>
       <TopicBanner
         imgUrl={api.data.cover_photo.urls.regular}

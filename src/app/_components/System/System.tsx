@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { FlashMessage } from '@/components';
+import { Toaster } from 'react-hot-toast';
 import { QueryProviders } from '@/utils';
 import { Authentication } from '../Authentication';
 
@@ -16,6 +17,11 @@ export const System: React.FC<SystemProps> = (props) => {
       <Authentication />
       <FlashMessage />
       {children}
+      <Toaster
+        containerStyle={{
+          bottom: 100,
+        }}
+      />
     </QueryProviders>
   );
 };

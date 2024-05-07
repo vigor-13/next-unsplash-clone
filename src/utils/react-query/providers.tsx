@@ -1,28 +1,16 @@
 'use client';
 import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-export const makeQueryClient = () => {
-  return new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnMount: false,
-        refetchOnWindowFocus: false,
-        refetchOnReconnect: false,
-        gcTime: 1000 * 60 * 60,
-        staleTime: 10 * 1000,
-      },
-    },
-  });
-};
+import { createQueryClient } from './create-query-client';
 
 let browserQueryClient: QueryClient | undefined = undefined;
+
 export const getQueryClient = () => {
   // On Server
-  if (typeof window === 'undefined') return makeQueryClient();
+  if (typeof window === 'undefined') return createQueryClient();
 
   // On Client
-  if (!browserQueryClient) browserQueryClient = makeQueryClient();
+  if (!browserQueryClient) browserQueryClient = createQueryClient();
   return browserQueryClient;
 };
 

@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useParams } from 'next/navigation';
-import { Box, Text, SearchPhotoList } from '@/components';
+import { Box, Text, SearchPhotoList, Flex } from '@/components';
 import { capitalize } from '@/libs';
 
 export const PhotosScreen: React.FC = () => {
@@ -9,13 +9,15 @@ export const PhotosScreen: React.FC = () => {
   const title = capitalize(decodeURIComponent(query));
 
   return (
-    <Box className="px-4 lg:px-32 xl:px-40">
+    <Flex className="flex-col flex-1 px-4 lg:px-32 xl:px-40">
       <Box className="py-4">
         <Text as="h1" className="font-bold text-3xl">
           {title}
         </Text>
       </Box>
-      <SearchPhotoList />
-    </Box>
+      <Box className="flex-1">
+        <SearchPhotoList />
+      </Box>
+    </Flex>
   );
 };
