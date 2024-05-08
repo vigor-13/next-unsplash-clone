@@ -3,7 +3,7 @@ import { SearchInput, Text } from '@/components';
 
 export const MainBanner: React.FC = () => {
   return (
-    <section className="px-4 py-8">
+    <section className="py-8">
       <div className="flex flex-row">
         <div className="flex flex-col justify-end">
           <Text className="mb-3 font-bold text-4xl" as="h1">

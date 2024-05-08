@@ -1,9 +1,6 @@
 import { Photo, PhotoDetail } from './photos.type';
 import { api } from './api';
 
-/**
- * 사진 리스트
- */
 export interface GetPhotosQueryParams {
   page: number;
   per_page?: number;
@@ -19,9 +16,6 @@ export const getPhotos = (params: GetPhotosQueryParams) => {
   });
 };
 
-/**
- * 사진 상세 정보
- */
 export interface GetPhotoQueryParams {
   id: string;
 }

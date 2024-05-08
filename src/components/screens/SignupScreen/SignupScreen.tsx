@@ -1,5 +1,5 @@
 import React from 'react';
-import { SignupGrid, SignupBanner, SignupForm, Box } from '@/components';
+import { SignupGrid, SignupBanner, SignupForm } from '@/components';
 
 export const SignupScreen = () => {
   return (

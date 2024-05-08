@@ -3,6 +3,25 @@ import { redirect, notFound } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
 import { UserLayout } from '@/components';
 
+const _isValidSlug = (slug: string) => {
+  if (slug[0] !== '@') return false;
+  return true;
+};
+
+const _isValidUsername = (slug: string, username: string): boolean => {
+  const inputSlug = slug.slice(1);
+  return inputSlug === username;
+};
+
+const _errorHandler = (code: number | undefined) => {
+  switch (code) {
+    case 400:
+      return redirect('/login');
+    default:
+      return redirect('/error');
+  }
+};
+
 interface LayoutProps {
   children: React.ReactNode;
   params: {
@@ -25,22 +44,3 @@ export default async function Layout(props: LayoutProps) {
 
   return <UserLayout user={data.user!}>{children}</UserLayout>;
 }
-
-const _isValidSlug = (slug: string) => {
-  if (slug[0] !== '@') return false;
-  return true;
-};
-
-const _isValidUsername = (slug: string, username: string): boolean => {
-  const inputSlug = slug.slice(1);
-  return inputSlug === username;
-};
-
-const _errorHandler = (code: number | undefined) => {
-  switch (code) {
-    case 400:
-      return redirect('/login');
-    default:
-      return redirect('/error');
-  }
-};

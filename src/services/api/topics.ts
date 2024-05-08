@@ -2,9 +2,6 @@ import { api } from './api';
 import { TopicDetail, type Topic } from './topics.type';
 import { Photo } from './photos.type';
 
-/**
- * 토픽 키워드 리스트
- */
 export interface GetTopicsParams {
   ids?: string;
   page?: number;
@@ -25,9 +22,6 @@ export const getTopics = (params: GetTopicsParams) => {
   });
 };
 
-/**
- * 개별 토픽 세부 정보
- */
 export interface GetTopicParams {
   idOrSlug: string;
 }
@@ -37,9 +31,6 @@ export const getTopic = (params: GetTopicParams) => {
   return api<TopicDetail>(`/topics/${idOrSlug}`);
 };
 
-/**
- * 토픽 연관 사진 리스트
- */
 export interface GetTopicsPhotosParams {
   idOrSlug: string;
   page?: number;

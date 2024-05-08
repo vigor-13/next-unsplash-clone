@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, MainBanner, MainPhotoList } from '@/components';
+import { Box, MainBanner, MainPhotoList, Container } from '@/components';
 
 export interface HomeScreenProps {}
 
@@ -7,11 +7,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = (props) => {
   const {} = props;
 
   return (
-    <>
+    <Box className="px-4 lg:px-32 xl:px-40">
       <MainBanner />
-      <Box className="px-4">
-        <MainPhotoList />
-      </Box>
-    </>
+      <MainPhotoList />
+    </Box>
   );
 };

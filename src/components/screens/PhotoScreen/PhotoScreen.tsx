@@ -8,6 +8,7 @@ import {
   Box,
   PhotoDetailHeaderSkeleton,
   PhotoDetailBodySkeleton,
+  NoResult,
 } from '@/components';
 import { getPhoto } from '@/services/api';
 
@@ -25,15 +26,20 @@ export const PhotoScreen: React.FC<PhotoScreenProps> = (props) => {
     },
   });
 
-  // TODO: Suspense 적용
-  return api.status === 'pending' ? (
-    <Box className="px-5 py-5">
-      <PhotoDetailHeaderSkeleton />
-      <PhotoDetailBodySkeleton />
-    </Box>
-  ) : api.status === 'error' ? (
-    <div>Error</div>
-  ) : (
+  if (api.status === 'pending') {
+    return (
+      <Box className="px-5 py-5">
+        <PhotoDetailHeaderSkeleton />
+        <PhotoDetailBodySkeleton />
+      </Box>
+    );
+  }
+
+  if (api.status === 'error') {
+    return <NoResult />;
+  }
+
+  return (
     <Box className="px-5 pb-5">
       <PhotoHeader data={api.data} />
       <PhotoBody data={api.data} />

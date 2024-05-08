@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { QueryModal } from '../_components';
+import { System } from '../_components';
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -10,13 +10,12 @@ const AppLayout: React.FC<AppLayoutProps> = (props) => {
   const { children, modal } = props;
 
   return (
-    <>
-      {children}
-      {modal}
-      <Suspense>
-        <QueryModal />
-      </Suspense>
-    </>
+    <Suspense>
+      <System>
+        {children}
+        {modal}
+      </System>
+    </Suspense>
   );
 };
 

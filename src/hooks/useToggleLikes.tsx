@@ -21,7 +21,6 @@ export const useToggleLikes = (props: useToggleLikesProps) => {
   const toggleLikes = async () => {
     const { data: userData, error } = await supabase!.auth.getUser();
     if (error || !userData.user) return router.push(`/?modal=login`);
-
     _toggleLikes(data);
   };
 

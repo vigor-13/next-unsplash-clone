@@ -13,6 +13,7 @@ export * from './Box';
 export * from './Tag';
 export * from './Input';
 export * from './FlashMessage';
+export * from './FixedMessage';
 export * from './Profile';
 export * from './PopBox';
 export * from './PopBoxItem';

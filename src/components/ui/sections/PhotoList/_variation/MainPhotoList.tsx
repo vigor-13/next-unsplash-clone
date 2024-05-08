@@ -1,11 +1,12 @@
 'use client';
 import React from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { getPhotos } from '@/services/api';
-import { PhotoList } from '../PhotoList';
+import { type Photo, getPhotos } from '@/services/api';
 import { PhotoListSkeleton } from '@/components';
+import { PhotoList } from '../PhotoList';
 
 export const MainPhotoList = () => {
+  const [list, setList] = React.useState<Photo[]>([]);
   const api = useInfiniteQuery({
     queryKey: ['photos'],
     queryFn: async ({ pageParam }) => {
@@ -21,6 +22,7 @@ export const MainPhotoList = () => {
           (item, index, self) =>
             index === self.findIndex((t) => t.id === item.id),
         );
+
       return {
         pages: filtteredData,
         pageParams: [...data.pageParams],
@@ -32,14 +34,15 @@ export const MainPhotoList = () => {
     },
   });
 
-  // TODO: Suspense 적용
-  return api.status === 'pending' ? (
-    <PhotoListSkeleton />
-  ) : api.status === 'error' ? (
-    <div>Error</div>
-  ) : (
+  React.useEffect(() => {
+    if (api.data?.pages) setList(api.data.pages);
+  }, [api.data?.pages]);
+
+  if (api.status === 'pending') return <PhotoListSkeleton />;
+
+  return (
     <PhotoList
-      data={api.data.pages}
+      data={list}
       isFetching={api.isFetching}
       onEndReached={api.fetchNextPage}
     />
