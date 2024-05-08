@@ -15,15 +15,18 @@ export const SignupBanner: React.FC = () => {
         />
       </Box>
       <Flex
-        className="flex-col items-start p-10 z-10 bg-black bg-opacity-40"
+        className="flex-col items-start gap-8 p-6 sm:p-10 z-10 bg-black bg-opacity-40"
         style={{ gridArea: '1/1/2/2' }}
       >
         <Logo color="white" size={52} />
         <Flex className="my-auto flex-col gap-5">
-          <Text as="h2" className="font-bold text-5xl leading-tight text-white">
+          <Text
+            as="h2"
+            className="font-bold text-2xl md:text-5xl leading-tight text-white"
+          >
             여기에서 창작 시작하기
           </Text>
-          <Text className="text-xl text-white">
+          <Text className="text-sm md:text-xl text-white">
             다른 곳에서는 찾을 수 없는 5,825,610장의 무료 고해상도 사진을 이용해
             보세요.
           </Text>

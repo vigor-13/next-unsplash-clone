@@ -51,8 +51,8 @@ export const PhotoBody: React.FC<PhotoBodyProps> = (props) => {
       </Box>
       <Flex className="flex-col gap-8 pt-4">
         <Box>
-          <Grid className="grid-cols-3">
-            <Grid className="grid-cols-2">
+          <Grid className="grid-cols-2">
+            <Grid className="gap-4 grid-cols-1 sm:grid-cols-3">
               <TitleDescCol
                 title="조회수"
                 desc={numberFormatting(data.views)}
@@ -61,8 +61,8 @@ export const PhotoBody: React.FC<PhotoBodyProps> = (props) => {
                 title="다운로드"
                 desc={numberFormatting(data.downloads)}
               />
+              <div></div>
             </Grid>
-            <div></div>
             <Grid className="justify-end">
               <EllipsisButton />
             </Grid>

@@ -1,17 +1,6 @@
 import React from 'react';
 import { Flex, Input, SubButton, FlashMessageData } from '@/components';
 import { login } from '@/services/server-actions';
-import { useRouter } from 'next/navigation';
-
-// const createMessage = (statusCode: number): FlashMessageData | undefined => {
-//   switch (statusCode) {
-//     case 400:
-//       return {
-//         type: 'error',
-//         message: '잘못된 이메일 또는 암호입니다.',
-//       };
-//   }
-// };
 
 export const LoginForm: React.FC = () => {
   const [formKey, setFormKey] = React.useState(0);

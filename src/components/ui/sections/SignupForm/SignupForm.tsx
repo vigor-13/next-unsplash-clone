@@ -16,7 +16,7 @@ export const SignupForm: React.FC = () => {
   const [state, action] = useFormState(signup, undefined);
 
   return (
-    <Flex className="flex-col justify-center mx-auto p-10 w-full md:max-w-600">
+    <Flex className="flex-col justify-center mx-auto py-10 px-4 sm:px-10 w-full md:max-w-600">
       <SignupFormHeader />
       <form
         className="flex flex-col gap-8 mt-12"
