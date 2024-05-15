@@ -40,14 +40,15 @@ export const PhotoBody: React.FC<PhotoBodyProps> = (props) => {
   return (
     <>
       <Box className={imageBoxClasses}>
-        <Image
+        {/* <Image
           className="rounded"
           src={data.urls.regular}
           alt={data.description}
           layout="responsive"
           width={data.width}
           height={data.height}
-        />
+        /> */}
+        <img src={data.urls.regular} alt="" className="rounded" />
       </Box>
       <Flex className="flex-col gap-8 pt-4">
         <Box>

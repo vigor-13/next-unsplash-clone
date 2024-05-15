@@ -6,12 +6,17 @@ export const NoResult: React.FC = () => {
   return (
     <Flex className="justify-center items-center h-full">
       <Box>
-        <Image
+        {/* <Image
           className="rounded-full"
           src="/images/no-result.png"
           alt=""
           width={300}
           height={225}
+        /> */}
+        <img
+          src="/images/no-result.png"
+          alt=""
+          className="w-[300px] h-[225px]"
         />
       </Box>
     </Flex>
