@@ -8,8 +8,6 @@ export const createQueryClient = () => {
         refetchOnMount: false,
         refetchOnWindowFocus: false,
         refetchOnReconnect: false,
-        gcTime: 1000 * 60 * 60,
-        staleTime: 10 * 1000,
       },
       mutations: {
         onError: (error) => handleError(error as CustomError),

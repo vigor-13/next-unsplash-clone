@@ -9,9 +9,9 @@ export const WithHeader: React.FC<WithHeaderProps> = (props) => {
   const { children } = props;
 
   return (
-    <Box className="h-screen flex flex-col">
+    <>
       <Header />
       {children}
-    </Box>
+    </>
   );
 };
