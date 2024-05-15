@@ -7,6 +7,8 @@ import {
 import { getPhotos } from '@/services/api';
 import { HomeScreen } from '@/components';
 
+export const revalidate = 3600;
+
 export default async function HomePage() {
   const queryClient = new QueryClient();
   await queryClient.prefetchInfiniteQuery({
@@ -24,10 +26,8 @@ export default async function HomePage() {
   });
 
   return (
-    <>
-      <HydrationBoundary state={dehydrate(queryClient)}>
-        <HomeScreen />
-      </HydrationBoundary>
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <HomeScreen />
+    </HydrationBoundary>
   );
 }
