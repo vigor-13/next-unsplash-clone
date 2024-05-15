@@ -63,12 +63,17 @@ export const Profile: React.FC<ProfileProps> = (props) => {
         ref={refs.setReference}
         {...getReferenceProps()}
       >
-        <Image
+        {/* <Image
           className="rounded-full"
           src="/images/placeholder-avatars.png"
           alt=""
           width={32}
           height={32}
+        /> */}
+        <img
+          src="/images/placeholder-avatars.png"
+          alt=""
+          className="rounded-full"
         />
       </Box>
       {isOpen && (

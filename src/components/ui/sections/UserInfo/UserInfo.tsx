@@ -16,12 +16,17 @@ export const UserInfo: React.FC<UserInfoProps> = (props) => {
     <Grid className="w-full gap-x-6 grid-cols-12 col-span-12">
       <Box className="col-span-4">
         <Box>
-          <Image
+          {/* <Image
             className="rounded-full ml-auto mr-4"
             src="/images/placeholder-avatars-extra-large.png"
             alt=""
             width={150}
             height={150}
+          /> */}
+          <img
+            src="/images/placeholder-avatars-extra-large.png"
+            alt=""
+            className="rounded-full ml-auto mr-4"
           />
         </Box>
       </Box>

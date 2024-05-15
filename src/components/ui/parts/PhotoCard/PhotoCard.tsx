@@ -42,12 +42,13 @@ export const PhotoCard: React.FC<PhotoCardProps> = (props) => {
       onMouseLeave={() => setIsHovered(false)}
       onClick={goToDetailPage}
     >
-      <Image
+      {/* <Image
         src={data.urls.small}
         alt={data.alternative_slugs.ko ? data.alternative_slugs.ko : data.slug}
         width={data.width}
         height={data.height}
-      />
+      /> */}
+      <img src={data.urls.small} alt="" className="w-full" />
       <Box className={backgroundClasses} />
       <Box className={`absolute right-4 top-4 transition ${hoveredClasses}`}>
         <LikeButton onClick={clickLikeButton} active={isLiked} />

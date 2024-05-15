@@ -29,13 +29,14 @@ export const UserProfile: React.FC<UserProfileProps> = (props) => {
   return (
     <Flex className="items-center gap-2 ">
       <Link href="/">
-        <Image
+        {/* <Image
           className="rounded-full"
           src={data.profile_image.small}
           alt={data.name}
           width={34}
           height={34}
-        />
+        /> */}
+        <img src={data.profile_image.small} alt="" className="rounded-full" />
       </Link>
       <Box>
         <Link href="/">
